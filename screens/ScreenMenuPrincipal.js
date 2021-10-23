@@ -1,5 +1,4 @@
 //SCREEN 4
-
 import React from 'react';
 import {View, StyleSheet, Text} from "react-native";
 
@@ -17,7 +16,7 @@ export default ScreenMenuPrincipal;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },
