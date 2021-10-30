@@ -36,11 +36,22 @@ const TabNavigator = () => {
 
 export const StackNavigator = () => {
   return (
-    <Stack.Screen
-      name={"TabNavigator"}
-      component={TabNavigator}
-      options={{ headerShown: false }}
-    />
+    <Tab.Navigator>
+      <Tab.Screen
+        name="ScreenMenuPrincipal"
+        component={ScreenMenuPrincipal}
+        options={{
+          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
+        }}
+      />
+      <Tab.Screen
+        name="ScreenMapa"
+        component={ScreenMapa}
+        options={{
+          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 

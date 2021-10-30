@@ -4,28 +4,33 @@ import { View, StyleSheet, Text, TextInput, Alert, Button } from "react-native";
 import { useDispatch } from "react-redux";
 import * as authActions from "../validators/actions/authActions";
 
-const ScreenTelefonoValido = () => {
+const ScreenTelefonoValido = ({ navigation }) => {
   const [number, setNumber] = useState(null);
-  const [password, setPassword] = useState(null);
   const dispatch = useDispatch();
 
   const onClick = () => {
     try {
-      number && password
-        ? dispatch(authActions.tryLogin(number, password))
+      number
+        ? celValidado()
         : Alert.alert("Alert", "Campos Vacios!", [{ text: "Ok" }]);
     } catch (e) {
       Alert.alert("Error", e.toString(), [{ text: "Ok" }]);
     }
   };
 
+  function goToCode(){
+    navigation.navigate("ScreenCodigoAuth");
+  };
+
+  const celValidado = () =>{
+    dispatch(authActions.tryCel(number));
+    goToCode();
+  }
+
   const validateNumber = (number) => {
     setNumber(number);
   };
 
-  const validatePassword = (password) => {
-    setPassword(password);
-  };
   return (
     <View style={styles.container}>
       <Text>Validar Telefono</Text>
@@ -33,13 +38,9 @@ const ScreenTelefonoValido = () => {
         style={styles.input}
         placeholder="1234567890"
         onChangeText={(text) => validateNumber(text)}
+        keyboardType = 'numeric'
       />
-      <TextInput
-        style={styles.input}
-        placeholder="**************"
-        secureTextEntry={true}
-        onChangeText={(text) => validatePassword(text)}
-      />
+
       <Button
         style={styles.button}
         title={"Continúa con tu celular"}
