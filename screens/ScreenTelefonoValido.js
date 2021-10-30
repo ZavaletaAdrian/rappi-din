@@ -1,8 +1,11 @@
 //SCREEN 2
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput, Alert, Button } from "react-native";
+import { View, StyleSheet, Text, TextInput, Alert, Button, TouchableOpacity, Image } from "react-native";
 import { useDispatch } from "react-redux";
 import * as authActions from "../validators/actions/authActions";
+import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 const ScreenTelefonoValido = ({ navigation }) => {
   const [number, setNumber] = useState(null);
@@ -22,6 +25,10 @@ const ScreenTelefonoValido = ({ navigation }) => {
     navigation.navigate("ScreenCodigoAuth");
   };
 
+  function regresar(){
+    navigation.navigate("ScreenLogin");
+  };
+
   const celValidado = () =>{
     dispatch(authActions.tryCel(number));
     goToCode();
@@ -33,20 +40,42 @@ const ScreenTelefonoValido = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Validar Telefono</Text>
+      <View style={styles.arrow}>
+        <AntDesign name="arrowleft" size={24} color="black" onPress={regresar}/>
+      </View>
+      <View style={styles.textCont}>
+        <Text style={styles.texto}>Agrega tu número celular,</Text>
+        <Text style={styles.texto}>así podremos reconocerte</Text>
+      </View>
+     <View style={styles.numero}>
       <TextInput
-        style={styles.input}
-        placeholder="1234567890"
-        onChangeText={(text) => validateNumber(text)}
-        keyboardType = 'numeric'
-      />
-
-      <Button
-        style={styles.button}
-        title={"Continúa con tu celular"}
-        color="#2AD881"
-        onPress={onClick}
-      />
+          style={styles.input}
+          placeholder="Número celular"
+          onChangeText={(text) => validateNumber(text)}
+          keyboardType = 'numeric'
+        />
+        <Image 
+          source={require('../Images/mexican_flag.png')}
+          style={styles.lada}
+        />
+        <Text style={styles.ladaT}>+52</Text>
+      </View>
+      <View style={styles.boton}>
+        <TouchableOpacity onPress={onClick} style={styles.button}>
+          <Text style={styles.buttonText}>Recibir código por SMS</Text>
+        </TouchableOpacity>
+      </View>  
+      <View style={styles.icono1}>
+        <Ionicons name="chatbubble-ellipses-outline" size={25} color="white" />
+      </View> 
+      <View style={styles.boton2}>
+        <TouchableOpacity onPress={onClick} style={styles.button2}>
+          <Text style={styles.buttonText2}>Recibir código WhatsApp</Text>
+        </TouchableOpacity>
+      </View>  
+      <View style={styles.icono2}>
+        <FontAwesome name="whatsapp" size={25} color="#2BD781" />
+      </View>   
     </View>
   );
 };
@@ -57,17 +86,97 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
   input: {
-    width: "90%",
+    width: "70%",
     height: 45,
-    borderWidth: 1,
     borderRadius: 5,
-    borderColor: "#535c68",
     fontSize: 18,
     paddingLeft: 10,
     marginBottom: 30,
+    marginLeft:70,
+    fontSize:24,
+    fontWeight:'bold'
   },
+  arrow:{
+    justifyContent:'flex-start',
+    marginTop:70,
+    marginLeft:20,
+  },
+  textCont:{
+    justifyContent:'flex-start',
+    marginLeft:20,
+    marginTop:22
+  },
+  texto:{
+    fontSize:22,
+    fontWeight:'bold',
+  },
+  numero:{
+    marginLeft:'8%',
+    marginTop:40,
+  },
+  button:{
+    backgroundColor: "#2BD781",
+    borderRadius: 35,
+    width:'88%',
+    height:55,
+    marginLeft:'6%'
+  },
+  buttonText:{
+    color: "white",
+    textAlign:'center',
+    fontWeight:'bold',
+    alignSelf:'auto',
+    marginTop:18,
+    fontSize:16
+  },
+  boton:{
+    justifyContent:'center',
+    marginTop:68
+  },
+  icono1:{
+    position:'absolute',
+    marginTop:373,
+    marginLeft:42
+  },
+  boton2:{
+    justifyContent:'center',
+    marginTop:20
+  },
+  icono2:{
+    position:'absolute',
+    marginTop:446,
+    marginLeft:42
+  },
+  button2:{
+    backgroundColor: "white",
+    borderRadius: 35,
+    width:'88%',
+    height:55,
+    marginLeft:'6%',
+    borderColor:'grey',
+    borderWidth:.08
+  },
+  buttonText2:{
+    color: "#2BD781",
+    textAlign:'center',
+    fontWeight:'bold',
+    alignSelf:'auto',
+    marginTop:18,
+    fontSize:16
+  },
+  lada:{
+    position:'absolute',
+    width:24,
+    height:25,
+    marginTop:9
+  },
+  ladaT:{
+    position:'absolute',
+    marginTop:10,
+    marginLeft:28,
+    fontSize:18,
+    fontWeight:'bold'
+  }
 });
