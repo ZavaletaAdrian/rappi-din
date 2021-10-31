@@ -89,14 +89,14 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "70%",
-    height: 45,
+    height: 36,
     borderRadius: 5,
-    fontSize: 18,
+    fontSize: 23,
     paddingLeft: 10,
     marginBottom: 30,
     marginLeft:70,
     fontSize:24,
-    fontWeight:'bold'
+    fontFamily:'Nunito-ExtraBold'
   },
   arrow:{
     justifyContent:'flex-start',
@@ -106,15 +106,15 @@ const styles = StyleSheet.create({
   textCont:{
     justifyContent:'flex-start',
     marginLeft:20,
-    marginTop:22
+    marginTop:23
   },
   texto:{
-    fontSize:22,
-    fontWeight:'bold',
+    fontSize:25,
+    fontFamily:'Nunito-ExtraBold',
   },
   numero:{
     marginLeft:'8%',
-    marginTop:40,
+    marginTop:39,
   },
   button:{
     backgroundColor: "#2BD781",
@@ -129,11 +129,12 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     alignSelf:'auto',
     marginTop:18,
-    fontSize:16
+    fontSize:16,
+    fontFamily:'Nunito-ExtraBold'
   },
   boton:{
     justifyContent:'center',
-    marginTop:68
+    marginTop:67
   },
   icono1:{
     position:'absolute',
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
   },
   boton2:{
     justifyContent:'center',
-    marginTop:20
+    marginTop:18
   },
   icono2:{
     position:'absolute',
@@ -164,19 +165,20 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     alignSelf:'auto',
     marginTop:18,
-    fontSize:16
+    fontSize:16,
+    fontFamily:'Nunito-ExtraBold'
   },
   lada:{
     position:'absolute',
     width:24,
     height:25,
-    marginTop:9
+    marginTop:4.5
   },
   ladaT:{
     position:'absolute',
-    marginTop:10,
-    marginLeft:28,
-    fontSize:18,
-    fontWeight:'bold'
+    marginTop:4,
+    marginLeft:29,
+    fontSize:19,
+    fontFamily:'Nunito-ExtraBold'
   }
 });
