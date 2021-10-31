@@ -22,6 +22,7 @@ export default function App() {
       'Nunito-SemiBold': require('./assets/Fuentes/Nunito/Nunito-SemiBold.ttf'),
       'Nunito-Bold': require('./assets/Fuentes/Nunito/Nunito-Bold.ttf'),
       'Nunito-ExtraBold': require('./assets/Fuentes/Nunito/Nunito-ExtraBold.ttf'),
+      'Nunito-Light': require('./assets/Fuentes/Nunito/Nunito-Light.ttf'),
     })
   }
 
