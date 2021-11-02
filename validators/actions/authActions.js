@@ -23,8 +23,8 @@ export const tryCel = (number) =>{
     }
 }
 
-export const tryCode = (code) =>{
-    if (code == '1234'){
+export const tryCode = (codeAuth) =>{
+    if (codeAuth == '1234'){
         return{
             type:LOGIN
         };
