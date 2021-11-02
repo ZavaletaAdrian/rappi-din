@@ -27,9 +27,10 @@ const ScreenCodigoAuth = ({ navigation }) =>{
   }
 
   const onClick = () => {
+    var codeAuth = code[1]+code[2]+code[3]+code[4];
     try {
-      code
-        ? dispatch(authActions.tryCode(code))
+      codeAuth
+        ? dispatch(authActions.tryCode(codeAuth))
         : Alert.alert("Alert", "Campos Vacios!", [{ text: "Ok" }]);
     } catch (e) {
       Alert.alert("Error", e.toString(), [{ text: "Ok" }]);
@@ -98,7 +99,7 @@ const ScreenCodigoAuth = ({ navigation }) =>{
                 maxLength={1}
                 onChangeText={(text) => {
                   setCode({...code, 4: text})
-                  !text ? tercer.current.focus() : prueba()
+                  !text == ''  ? cuarto.current.focus() : onClick()
                 }}
                 ref = {cuarto}
               />
