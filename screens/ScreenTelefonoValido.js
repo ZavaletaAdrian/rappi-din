@@ -1,11 +1,12 @@
 //SCREEN 2
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput, Alert, Button, TouchableOpacity, Image } from "react-native";
+import { View, StyleSheet, Text, TextInput, Alert, Image, Dimensions } from "react-native";
 import { useDispatch } from "react-redux";
 import * as authActions from "../validators/actions/authActions";
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 
 const ScreenTelefonoValido = ({ navigation }) => {
   const [number, setNumber] = useState(0);
@@ -71,22 +72,22 @@ const ScreenTelefonoValido = ({ navigation }) => {
         />
         <Text style={styles.ladaT}>+52</Text>
       </View>
-      <View style={styles.boton}>
-        <TouchableOpacity onPress={onClick} style={numListo?styles.buttonC:styles.button}>
-          <Text style={styles.buttonText}>Recibir código por SMS</Text>
-        </TouchableOpacity>
-      </View>  
-      <View style={styles.icono1}>
-        <Ionicons name="chatbubble-ellipses-outline" size={25} color={"white"} />
-      </View> 
-      <View style={styles.boton2}>
-        <TouchableOpacity style={numListo?styles.button2C:styles.button2}>
-          <Text style={numListo?styles.buttonText2C:styles.buttonText2}>Recibir código WhatsApp</Text>
-        </TouchableOpacity>
-      </View>  
-      <View style={styles.icono2}>
-        <FontAwesome name="whatsapp" size={25} color={numListo ? "#2BD781" : "grey"} />
-      </View>   
+        <View style={styles.boton}>
+          <TouchableCmp onPress={onClick}>
+            <View style={numListo?styles.buttonC:styles.button}>
+              <Ionicons name="chatbubble-ellipses-outline" size={25} color="white" style={styles.iconoSMS}/>
+              <Text style={styles.buttonText}>Recibir código por SMS</Text>
+            </View>
+          </TouchableCmp>
+        </View>
+        <View style={styles.boton2}>
+          <TouchableCmp>
+            <View style={numListo?styles.button2C:styles.button2}>
+              <FontAwesome name="whatsapp" size={25} color={numListo ? "#2BD781" : "grey"} style={styles.iconoWhatsApp}/>
+              <Text style={numListo?styles.buttonText2C:styles.buttonText2}>Recibir código WhatsApp</Text>
+            </View>
+          </TouchableCmp>
+        </View>
     </View>
   );
 };
@@ -130,81 +131,82 @@ const styles = StyleSheet.create({
   button:{
     backgroundColor: "grey",
     borderRadius: 35,
-    width:'88%',
-    height:55,
-    marginLeft:'6%',
+    width:'100%',
+    height: Dimensions.get('window').height * 0.07,
+    paddingLeft: "5%",
     borderColor:'grey',
     borderWidth:0.18,
+    flexDirection: 'row',
   },
   buttonC:{
     backgroundColor: "#2BD781",
     borderRadius: 35,
-    width:'88%',
-    height:55,
-    marginLeft:'6%'
+    width:'100%',
+    height: Dimensions.get('window').height * 0.07,
+    paddingLeft: "5%",
+    flexDirection: 'row',
   },
   buttonText:{
     color: "white",
-    textAlign:'center',
-    fontWeight:'bold',
-    alignSelf:'auto',
-    marginTop:18,
-    fontSize:16,
-    fontFamily:'Nunito-ExtraBold'
+    fontSize: 16,
+    marginTop: '4.5%',
+    fontFamily: "Nunito-ExtraBold",
+    marginLeft: "10%",
   },
   boton:{
-    justifyContent:'center',
-    marginTop:67
+    height: Dimensions.get('window').height * 0.07,
+    marginHorizontal:"6%",
+    marginVertical:"2%",
+    overflow: "hidden",
+    borderRadius: 35,
   },
-  icono1:{
-    position:'absolute',
-    marginTop:373,
-    marginLeft:42
+  iconoSMS:{
+    marginTop: "4.75%"
+  },
+  iconoWhatsApp:{
+    marginTop: "4.75%"
   },
   boton2:{
-    justifyContent:'center',
-    marginTop:18
-  },
-  icono2:{
-    position:'absolute',
-    marginTop:446,
-    marginLeft:42
+    height: Dimensions.get('window').height * 0.07,
+    marginHorizontal:"6%",
+    marginVertical:"2%",
+    overflow: "hidden",
+    borderRadius: 35,
   },
   button2:{
+    backgroundColor:'white',
     borderRadius: 35,
-    width:'88%',
-    height:55,
-    marginLeft:'6%',
+    width:'100%',
+    height: Dimensions.get('window').height * 0.07,
+    paddingLeft: "5%",
     borderColor:'grey',
-    borderWidth: 0.18,
-    backgroundColor:'white'
+    borderWidth:0.18,
+    flexDirection: 'row',
   },
   button2C:{
-    borderRadius: 35,
-    width:'88%',
-    height:55,
-    marginLeft:'6%',
     borderColor:'grey',
     borderWidth: 0.18,
-    backgroundColor:'white'
+    backgroundColor:'white',
+    borderRadius: 35,
+    width:'100%',
+    height: Dimensions.get('window').height * 0.07,
+    paddingLeft: "5%",
+    flexDirection: 'row',
   },
   buttonText2C:{
     color: "#2BD781",
-    textAlign:'center',
-    fontWeight:'bold',
-    alignSelf:'auto',
-    marginTop:18,
-    fontSize:16,
-    fontFamily:'Nunito-ExtraBold'
+    fontFamily:'Nunito-ExtraBold',
+    fontSize: 16,
+    marginTop: '4.5%',
+    fontFamily: "Nunito-ExtraBold",
+    marginLeft: "10%",
   },
   buttonText2:{
-    color: "grey",
-    textAlign:'center',
-    fontWeight:'bold',
-    alignSelf:'auto',
-    marginTop:18,
-    fontSize:16,
-    fontFamily:'Nunito-ExtraBold'
+    color: 'grey',
+    fontSize: 16,
+    marginTop: '4.5%',
+    fontFamily: "Nunito-ExtraBold",
+    marginLeft: "10%",
   },
   lada:{
     position:'absolute',

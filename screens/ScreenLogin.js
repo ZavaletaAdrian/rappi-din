@@ -1,6 +1,6 @@
 //SCREEN 1
 import React from "react";
-import { View, StyleSheet, Text, Image, Dimensions, TouchableNativeFeedback} from "react-native";
+import { View, StyleSheet, Text, Image, Dimensions} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
