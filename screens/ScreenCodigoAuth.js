@@ -14,6 +14,8 @@ const ScreenCodigoAuth = ({ navigation }) =>{
 
   const [code, setCode] = useState({1: '', 2: '', 3: '', 4: ''});
   const dispatch = useDispatch();
+  const [codeListo, setCodeListo] = useState(false)
+  const [fullCode, setFullCode] = useState(0)
 
   const primer = useRef();
   const segundo = useRef();
@@ -30,6 +32,20 @@ const ScreenCodigoAuth = ({ navigation }) =>{
       Alert.alert("Error", e.toString(), [{ text: "Ok" }]);
     }
   };
+
+  const complete = () =>{
+    if (fullCode.toString().length == 2){
+      setCodeListo(true)
+    }else{
+      setCodeListo(false)
+    }
+  }
+  
+  const codigoEntero = () =>{
+    var codeAuth = code[1] + code[2] + code[3] + code[4]
+    setFullCode(codeAuth)
+    complete()
+  }
 
 
   function regresar(){
@@ -59,6 +75,7 @@ const ScreenCodigoAuth = ({ navigation }) =>{
               onChangeText={(text) => {
                 setCode({...code, 1: text})
                 text && segundo.current.focus()
+                codigoEntero()
               }}
               ref = {primer}
             />
@@ -71,6 +88,7 @@ const ScreenCodigoAuth = ({ navigation }) =>{
                 onChangeText={(text) => {
                   setCode({...code, 2: text})
                   text ? tercer.current.focus() : primer.current.focus()
+                  codigoEntero()
                 }}
                 ref = {segundo}
               />
@@ -83,6 +101,7 @@ const ScreenCodigoAuth = ({ navigation }) =>{
                 onChangeText={(text) => {
                   setCode({...code, 3: text})
                   text ? cuarto.current.focus() : segundo.current.focus()
+                  codigoEntero()
                 }}
                 ref = {tercer}
               />
@@ -95,13 +114,14 @@ const ScreenCodigoAuth = ({ navigation }) =>{
                 onChangeText={(text) => {
                   setCode({...code, 4: text})
                   !text && tercer.current.focus()
+                  codigoEntero()
                 }}
                 ref = {cuarto}
               />
           </View>
         </View>
         <View style={styles.siguiente}>
-          <TouchableOpacity onPress={onClick} style={styles.button}>
+          <TouchableOpacity onPress={onClick} style={codeListo?styles.buttonC:styles.button}>
             <Text style={styles.buttonText}>Siguiente</Text>
           </TouchableOpacity>
         </View>
@@ -181,8 +201,15 @@ const styles = StyleSheet.create({
     fontFamily:'Nunito-ExtraBold',
     color:'blue'
   },
-  button:{
+  buttonC:{
     backgroundColor: "#2BD781",
+    borderRadius: 35,
+    width:'45%',
+    height:35,
+    marginLeft:'27.5%'
+  },
+  button:{
+    backgroundColor: "grey",
     borderRadius: 35,
     width:'45%',
     height:35,

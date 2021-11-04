@@ -8,8 +8,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 const ScreenTelefonoValido = ({ navigation }) => {
-  const [number, setNumber] = useState(null);
+  const [number, setNumber] = useState(0);
   const dispatch = useDispatch();
+  const [numListo, setNumListo] = useState(false)
 
   const onClick = () => {
     try {
@@ -36,7 +37,17 @@ const ScreenTelefonoValido = ({ navigation }) => {
 
   const validateNumber = (number) => {
     setNumber(number);
+    complete();
   };
+
+  const complete = () =>{
+    var largo = number.toString().length
+    if (largo == 9){
+      setNumListo(true)
+    }else{
+      setNumListo(false)
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -61,20 +72,20 @@ const ScreenTelefonoValido = ({ navigation }) => {
         <Text style={styles.ladaT}>+52</Text>
       </View>
       <View style={styles.boton}>
-        <TouchableOpacity onPress={onClick} style={styles.button}>
+        <TouchableOpacity onPress={onClick} style={numListo?styles.buttonC:styles.button}>
           <Text style={styles.buttonText}>Recibir código por SMS</Text>
         </TouchableOpacity>
       </View>  
       <View style={styles.icono1}>
-        <Ionicons name="chatbubble-ellipses-outline" size={25} color="white" />
+        <Ionicons name="chatbubble-ellipses-outline" size={25} color={"white"} />
       </View> 
       <View style={styles.boton2}>
-        <TouchableOpacity onPress={onClick} style={styles.button2}>
-          <Text style={styles.buttonText2}>Recibir código WhatsApp</Text>
+        <TouchableOpacity style={numListo?styles.button2C:styles.button2}>
+          <Text style={numListo?styles.buttonText2C:styles.buttonText2}>Recibir código WhatsApp</Text>
         </TouchableOpacity>
       </View>  
       <View style={styles.icono2}>
-        <FontAwesome name="whatsapp" size={25} color="#2BD781" />
+        <FontAwesome name="whatsapp" size={25} color={numListo ? "#2BD781" : "grey"} />
       </View>   
     </View>
   );
@@ -117,6 +128,15 @@ const styles = StyleSheet.create({
     marginTop:39,
   },
   button:{
+    backgroundColor: "grey",
+    borderRadius: 35,
+    width:'88%',
+    height:55,
+    marginLeft:'6%',
+    borderColor:'grey',
+    borderWidth:0.18,
+  },
+  buttonC:{
     backgroundColor: "#2BD781",
     borderRadius: 35,
     width:'88%',
@@ -151,16 +171,34 @@ const styles = StyleSheet.create({
     marginLeft:42
   },
   button2:{
-    backgroundColor: "white",
     borderRadius: 35,
     width:'88%',
     height:55,
     marginLeft:'6%',
     borderColor:'grey',
-    borderWidth: 0.18
+    borderWidth: 0.18,
+    backgroundColor:'white'
+  },
+  button2C:{
+    borderRadius: 35,
+    width:'88%',
+    height:55,
+    marginLeft:'6%',
+    borderColor:'grey',
+    borderWidth: 0.18,
+    backgroundColor:'white'
+  },
+  buttonText2C:{
+    color: "#2BD781",
+    textAlign:'center',
+    fontWeight:'bold',
+    alignSelf:'auto',
+    marginTop:18,
+    fontSize:16,
+    fontFamily:'Nunito-ExtraBold'
   },
   buttonText2:{
-    color: "#2BD781",
+    color: "grey",
     textAlign:'center',
     fontWeight:'bold',
     alignSelf:'auto',
