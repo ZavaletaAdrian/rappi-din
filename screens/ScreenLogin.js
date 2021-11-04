@@ -17,7 +17,7 @@ const ScreenLogin = ({ navigation }) => {
         <View style={styles.viewGoogle}>
           <TouchableCmp>
             <View style={styles.botonGoogle}>
-              <AntDesign name="google" size={24} color="white" style={styles.iconos}/>
+              <AntDesign name="google" size={24} color="white" style={styles.iconoGoogle}/>
               <Text style={styles.textContinua}>Continúa con Google</Text>
             </View>
           </TouchableCmp>
@@ -25,16 +25,16 @@ const ScreenLogin = ({ navigation }) => {
         <View style={styles.viewTelefono}>
           <TouchableCmp onPress={goToNumber}>
             <View style={styles.botonTelefono}>
-              <Foundation name="telephone" size={32} color="white" style={styles.iconos}/>
-              <Text style={styles.textContinua}>Continúa con tu telefono</Text>
+              <Foundation name="telephone" size={32} color="white" style={styles.iconoTelefono}/>
+              <Text style={styles.textContinua}>Continúa con tu teléfono</Text>
             </View>
           </TouchableCmp>
         </View>
         <View style={styles.viewFacebook}>
           <TouchableCmp>
             <View style={styles.botonFacebook}>
-              <FontAwesome5 name="facebook" size={24} color="white" style={styles.iconos}/>
-              <Text style={styles.textContinua}>Continúa con tu telefono</Text>
+              <FontAwesome5 name="facebook" size={24} color="white" style={styles.iconoFacebook}/>
+              <Text style={styles.textContinua}>Continúa con Facebook</Text>
             </View>
           </TouchableCmp>
         </View>
@@ -56,8 +56,14 @@ const styles = StyleSheet.create({
     marginLeft: "10%",
     resizeMode: "contain",
   },
-  iconos: {
+  iconoGoogle: {
     marginTop: "4.75%"
+  },
+  iconoTelefono: {
+    marginTop: "4.2%"
+  },
+  iconoFacebook: {
+    marginTop: "4.70%"
   },
   viewBotones: {
     marginTop: '16%',
@@ -86,7 +92,7 @@ const styles = StyleSheet.create({
   textContinua: {
     color: "white",
     fontSize: 16,
-    marginTop: '4%',
+    marginTop: '4.5%',
     fontFamily: "Nunito-ExtraBold",
     marginLeft: "10%",
   },
