@@ -43,6 +43,7 @@ export const StackNavigator = () => {
         options={{
           tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
         }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name="ScreenMapa"
@@ -50,6 +51,7 @@ export const StackNavigator = () => {
         options={{
           tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
         }}
+        options={{ headerShown: false }}
       />
     </Tab.Navigator>
   );
