@@ -5,7 +5,7 @@ import {TouchableOpacity, TouchableNativeFeedback} from "react-native-gesture-ha
 const TouchableCmp = (props) =>{
     const TouchableComponent = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
     return(
-        <TouchableComponent onPress={props.onPress}>
+        <TouchableComponent onPress={props.onPress} style={props.style} background={props.background}>
             {props.children}    
         </TouchableComponent>
     )
