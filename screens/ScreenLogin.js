@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   iconFacebook: {
     position: "absolute",
-    marginTop: '177%',
+    marginTop: '177.5%',
     marginLeft: 42,
   },
   buttonFacebook: {

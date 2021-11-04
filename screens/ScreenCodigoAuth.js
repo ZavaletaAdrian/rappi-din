@@ -1,7 +1,7 @@
 //SCREEN 3
 
 import React, { useState, useRef } from "react";
-import { View, StyleSheet, Text, TextInput, Alert, Button } from "react-native";
+import { View, StyleSheet, Text, TextInput, Alert, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
 import * as authActions from "../validators/actions/authActions";
 import { AntDesign } from '@expo/vector-icons';
@@ -20,12 +20,6 @@ const ScreenCodigoAuth = ({ navigation }) =>{
   const tercer = useRef();
   const cuarto = useRef();
 
-  const prueba = () =>{
-    var number = code[1]+code[2]+code[3]+code[4];
-    console.log(code)
-    console.log(number)
-  }
-
   const onClick = () => {
     var codeAuth = code[1]+code[2]+code[3]+code[4];
     try {
@@ -41,6 +35,7 @@ const ScreenCodigoAuth = ({ navigation }) =>{
   function regresar(){
     navigation.navigate("ScreenTelefonoValido");
   };
+  
 
     return(
       <View style={styles.container}>
@@ -99,11 +94,16 @@ const ScreenCodigoAuth = ({ navigation }) =>{
                 maxLength={1}
                 onChangeText={(text) => {
                   setCode({...code, 4: text})
-                  !text == ''  ? cuarto.current.focus() : onClick()
+                  !text && tercer.current.focus()
                 }}
                 ref = {cuarto}
               />
           </View>
+        </View>
+        <View style={styles.siguiente}>
+          <TouchableOpacity onPress={onClick} style={styles.button}>
+            <Text style={styles.buttonText}>Siguiente</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.leyenda}>
           <Text style={styles.texto2}>Podrás solicitar un código nuevo en</Text>
@@ -181,4 +181,23 @@ const styles = StyleSheet.create({
     fontFamily:'Nunito-ExtraBold',
     color:'blue'
   },
+  button:{
+    backgroundColor: "#2BD781",
+    borderRadius: 35,
+    width:'45%',
+    height:35,
+    marginLeft:'27.5%'
+  },
+  buttonText:{
+    color: "white",
+    textAlign:'center',
+    fontWeight:'bold',
+    alignSelf:'auto',
+    marginTop:7,
+    fontSize:16,
+    fontFamily:'Nunito-ExtraBold'
+  },
+  siguiente:{
+    marginTop: '15%'
+  }
 });
