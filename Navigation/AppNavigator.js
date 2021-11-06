@@ -56,7 +56,7 @@ export const StackNavigator = () => {
         name="Inicio"
         component={ScreenMenuPrincipal}
         options={{
-          tabBarIcon: ({focused}) => <AntDesign name="home" size={24} color={focused?"orange":"gray"}/>,
+          tabBarIcon: ({focused}) => <AntDesign name="home" size={24} color={focused?"#F4503E":"gray"}/>,
           headerShown: false
         }}
       />
@@ -65,7 +65,7 @@ export const StackNavigator = () => {
         name="Promos"
         component={noScreenForNow}
         options={{ 
-          tabBarIcon: ({focused}) => <MaterialCommunityIcons name="brightness-percent" size={24} color={focused?"orange":"gray"} />,
+          tabBarIcon: ({focused}) => <MaterialCommunityIcons name="brightness-percent" size={24} color={focused?"#F4503E":"gray"} />,
           headerShown: false
         }}
       />
@@ -73,7 +73,7 @@ export const StackNavigator = () => {
         name="Buscar"
         component={ScreenListaRestaurantes}
         options={{ 
-          tabBarIcon: ({focused}) => <Entypo name="magnifying-glass" size={24} color={focused?"orange":"gray"} />,
+          tabBarIcon: ({focused}) => <Entypo name="magnifying-glass" size={24} color={focused?"#F4503E":"gray"} />,
           headerShown: false 
         }}
       />
@@ -81,7 +81,7 @@ export const StackNavigator = () => {
         name="Soporte"
         component={noScreenForNow}
         options={{ 
-          tabBarIcon: ({focused}) => <MaterialIcons name="support-agent" size={24} color={focused?"orange":"gray"} />,
+          tabBarIcon: ({focused}) => <MaterialIcons name="support-agent" size={24} color={focused?"#F4503E":"gray"} />,
           headerShown: false 
         }}
       />
@@ -89,7 +89,7 @@ export const StackNavigator = () => {
         name="Mi perfil"
         component={noScreenForNow}
         options={{ 
-          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"orange":"gray"}/>,
+          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
           headerShown: false 
         }}
       />
