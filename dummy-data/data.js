@@ -5,6 +5,7 @@ export const RESTAURANT = [
     deliveryTime: "18 - 33 min",
     deliveryFee: 15.0,
     rating: 4.0,
+    background:"https://media-cdn.tripadvisor.com/media/photo-s/17/81/6d/71/lassen-sie-sich-keinen.jpg",
     image: "https://images.rappi.com.mx/restaurants_logo/burgerking-2021-logo-1610647039909.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       comboTocino: {
@@ -52,6 +53,7 @@ export const RESTAURANT = [
     deliveryTime: "32 - 47 min",
     deliveryFee: 20.0,
     rating: 4.5,
+    background:"https://d1ralsognjng37.cloudfront.net/d5c15334-be41-4953-9efb-92c108755284.jpeg",
     image: "https://images.rappi.com.mx/restaurants_logo/download-8-1581115712192.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       blizzardFresa: {
@@ -99,6 +101,7 @@ export const RESTAURANT = [
     deliveryTime: "19 - 34 min",
     deliveryFee: 14.0,
     rating: 4.1,
+    background:"https://wrcb.images.worldnow.com/images/21041011_G.jpeg",
     image: "https://images.rappi.com.mx/restaurants_logo/990005191-1540928854-1621459281047.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       polloPizziola: {
@@ -147,6 +150,7 @@ export const RESTAURANT = [
     deliveryTime: "30 min",
     deliveryFee: 22.0,
     rating: 4.6,
+    background:"https://cdn-3.expansion.mx/05/89/4e78e9544dec95a265e3f73b9005/cielitoobr045500010001.jpg",
     image: "https://images.rappi.com.mx/restaurants_logo/1306705841-1534371191.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       cafeOlla: {
@@ -193,6 +197,7 @@ export const RESTAURANT = [
     deliveryTime: "29 - 44 min",
     deliveryFee: 18.0,
     rating: 4.5,
+    background:"https://img.chilango.com/2017/02/viva-la-french-toast-combo.jpg",
     image: "https://images.rappi.com.mx/restaurants_logo/1306715350-1555451468-1585178493002-1585265767528.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       breakfastSampler: {

@@ -1,48 +1,70 @@
 import React from 'react';
-import {View, StyleSheet, Text, Dimensions, Image} from "react-native";
+import {View, StyleSheet, Text, Dimensions, Image, ImageBackground} from "react-native";
 import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 
-const SeccionesCard = (props) =>{
+const RestaurantCard = (props) =>{
     const redirect = () =>{
 
     }
     return(
-        <View style={styles.card}>
-            <TouchableCmp onClick={redirect}>
-                <View style={{height:'100%',width:'100%'}}>
-                    <Image source={props.productInfo.image} style={styles.image}/>
-                    <Text style={styles.text}>{props.productInfo.name}</Text>
-                    <Text style={styles.text2}>{props.productInfo.deliveryTime}</Text>
-                </View>
-            </TouchableCmp>
+        <View style={styles.container}>
+            <View style={styles.card}>
+                <TouchableCmp onClick={redirect}>
+                    <View style={{height:'100%',width:'100%', justifyContent:'center', alignItems:'center'}}>
+                        <Image source={{uri: props.productInfo.background}} style={styles.background}/>
+                        <Image source={{uri: props.productInfo.image}} style={styles.image}/>
+                    </View>
+                </TouchableCmp>
+            </View>
+            <Text style={styles.text}>{props.productInfo.name}</Text>
+            <Text style={styles.text2}>{props.productInfo.deliveryTime}</Text>
         </View>
     )
 }
 
-export default SeccionesCard;
+export default RestaurantCard;
 
 const styles= StyleSheet.create({
     card: {
-        width: Dimensions.get('window').height * 0.115,
-        height:Dimensions.get('window').height * 0.165,
+        width: Dimensions.get('window').width * 0.340,
+        height:Dimensions.get('window').height * 0.097,
         borderRadius:15,
         overflow:'hidden',
-        backgroundColor: 'white',
         alignContent:'center',
-        borderWidth:.5,
-        borderColor:'#F4F4F4',
-        marginHorizontal:5,
+        borderWidth:1.5,
+        borderColor:'white',
     },
     image: {
-        width:'70%',
-        height:'70%',
+        width:'75%',
+        height:'75%',
         resizeMode:'contain',
-        marginLeft:'15%'
+        position:'absolute',
+    },
+    background: {
+        width:'100%',
+        height:'100%',
+        resizeMode:'cover',
     },
     text:{
         color: 'black',
         fontFamily:'Nunito-SemiBold',
-        fontSize: 14,
-        textAlign:'center'
+        fontSize: 15,
+        textAlign:'center',
+        marginTop:10
     },
+    text2:{
+        color: 'black',
+        fontFamily:'Nunito-Bold',
+        fontSize: 12,
+        textAlign:'center',
+        marginTop:8,
+    },
+    container:{
+        width: Dimensions.get('window').width * 0.350,
+        height:Dimensions.get('window').height * 0.195,
+        marginHorizontal:25,
+        marginVertical:7.5,
+        alignContent:'center',
+        alignItems:'center'
+    }
 })
