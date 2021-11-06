@@ -1,14 +1,15 @@
 //SCREEN 4
 import React from 'react';
-import {View, StyleSheet, Text, Dimensions, ScrollView, TextInput} from "react-native";
+import {View, StyleSheet, Text, Dimensions, ScrollView, TextInput, FlatList} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from "react-native-elements";
+import SeccionesCard from '../componentes/SeccionesCard';
+import {SECTIONS} from "../dummy-data/sections"
 
-
-const ScreenMenuPrincipal = () =>{
+const ScreenMenuPrincipal = (props) =>{
 
     return(
-        <ScrollView style={styles.container} stickyHeaderIndices={[0]}>
+        <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
             <View style={styles.style1}> 
               <TextInput
                 style={styles.input}
@@ -21,7 +22,16 @@ const ScreenMenuPrincipal = () =>{
                 <Text style={styles.verTodo}>Ver todos</Text>
               </View>
               <View style={styles.cuerpo}>
-                <Text>A</Text>
+                <FlatList 
+                  data={SECTIONS}
+                  horizontal
+                  contentContainerStyle ={{paddingHorizontal:15}}
+                  showsHorizontalScrollIndicator={false}
+                  keyExtractor={item => item.id.toString()}
+                  renderItem = {itemData =>(
+                    <SeccionesCard {...props} productInfo={itemData.item}/>
+                  )}
+                />
               </View>
             </View>
             <View style={styles.style3}>
@@ -62,7 +72,7 @@ const styles = StyleSheet.create({
   style2:{
     height:Dimensions.get('window').height * 0.310,
     width:Dimensions.get('window').width * 1,
-    backgroundColor:'white'
+    backgroundColor:'#FBFBFB'
   },
   style3:{
     backgroundColor:'#FFFCF3',
@@ -109,6 +119,7 @@ const styles = StyleSheet.create({
   },
   cuerpo:{
     height: Dimensions.get('window').height * 0.180,
+    backgroundColor:'#FCFCFC'
   },
   restaurantes:{
     fontFamily: 'Nunito-ExtraBold',
