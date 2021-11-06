@@ -23,7 +23,7 @@ export default SeccionesCard;
 const styles= StyleSheet.create({
     card: {
         width: Dimensions.get('window').height * 0.115,
-        height:Dimensions.get('window').height * 0.165,
+        height:Dimensions.get('window').height * 0.125,
         borderRadius:15,
         overflow:'hidden',
         backgroundColor: 'white',
@@ -31,6 +31,7 @@ const styles= StyleSheet.create({
         borderWidth:.5,
         borderColor:'#F4F4F4',
         marginHorizontal:5,
+        marginVertical:7.5
     },
     image: {
         width:'70%',

@@ -2,12 +2,12 @@ export const SECTIONS = [
     {
         id: 1,
         title: 'Restaurante',
-        img: require('../Images/Hamburguesa.png')
+        img: require("../Images/Restaurante.png")
     },
     {
         id: 2,
         title: 'Super',
-        img: require("../Images/Super.jpg")
+        img: require("../Images/Super.png")
     },
     {
         id: 3,
@@ -17,7 +17,7 @@ export const SECTIONS = [
     {
         id: 4,
         title: 'Express',
-        img: require("../Images/Express2.jpg")
+        img: require("../Images/Express.png")
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ export const SECTIONS = [
     {
         id: 9,
         title: 'Deportes',
-        img: require("../Images/Deportes.jpg")
+        img: require("../Images/Deportes.png")
     },
     {
         id: 10,
