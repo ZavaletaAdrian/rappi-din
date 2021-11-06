@@ -2,7 +2,7 @@ export const SECTIONS = [
     {
         id: 1,
         title: 'Restaurante',
-        img: require("../Images/Hamburguesa.png")
+        img: require('../Images/Hamburguesa.png')
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const SECTIONS = [
     {
         id: 6,
         title: 'Shopping',
-        img:""
+        img: require("../Images/Shopping.png")
     },
     {
         id: 7,
