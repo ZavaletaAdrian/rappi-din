@@ -9,6 +9,7 @@ export const RESTAURANT = [
     image: "https://images.rappi.com.mx/restaurants_logo/burgerking-2021-logo-1610647039909.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       comboTocino: {
+        id: 1,
         name: "Combo Whopper BBQ Tocino",
         cost: 119.0,
         description:
@@ -17,6 +18,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       comboNinios: {
+        id:2,
         name: "King Jr Hamburguesa de Res con Queso",
         cost: 78.0,
         description:
@@ -25,6 +27,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       kingPollo: {
+        id:3,
         name: "King de Pollo",
         cost: 79.0,
         description: "Hamburguesa de pechuga de pollo empanizada de 15 cm.",
@@ -32,6 +35,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       nuggetsPollo: {
+        id:4,
         name: "10 piezas de Nuggets de Pollo",
         cost: 45.0,
         description: "Nuggets de pollo 10 pzas.",
@@ -39,6 +43,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       payQueso: {
+        id:5,
         name: "Pay de Queso con Moras",
         cost: 29.0,
         description: "Pay de Queso con moras y envuelto en costra de hojaldre.",
@@ -57,6 +62,7 @@ export const RESTAURANT = [
     image: "https://images.rappi.com.mx/restaurants_logo/download-8-1581115712192.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       blizzardFresa: {
+        id:1,
         name: "Fresa Plátano Blizzard",
         cost: 49.0,
         description:
@@ -65,6 +71,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       blizzardHawaian: {
+        id:2,
         name: "Hawaiana Blizzard",
         cost: 49.0,
         description: "Helado de vainilla con piña, coco tostado y plátano.",
@@ -72,6 +79,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       blizzardOreo: {
+        id:3,
         name: "Oreo Blizzard",
         cost: 49.0,
         description: "Helado de Vainilla con Galleta Oreo.",
@@ -79,6 +87,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       dillyBar: {
+        id:4,
         name: "Dilly Bar",
         cost: 22.0,
         description: "Paleta de helado de vainilla cubierta con chocolate.",
@@ -86,6 +95,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       dqSandwich: {
+        id:5,
         name: "DQ Sandwich",
         cost: 22.0,
         description:
@@ -105,6 +115,7 @@ export const RESTAURANT = [
     image: "https://images.rappi.com.mx/restaurants_logo/990005191-1540928854-1621459281047.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       polloPizziola: {
+        id:1,
         name: "Pollo Pizziola 15 cm",
         cost: 88.0,
         description:
@@ -113,6 +124,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       milanesaPollo: {
+        id:2,
         name: "Milanesa de Pollo Napolitana 15cm",
         cost: 77.0,
         description:
@@ -121,6 +133,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       bonelessHot: {
+        id:3,
         name: "Boneless Hot 15cm",
         cost: 88.0,
         description:
@@ -129,6 +142,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       ensaladaDeleite: {
+        id:4,
         name: "Ensalada Deleite Vegetariano",
         cost: 64.0,
         description: "Ensalada de vegetales con queso y aderezo.",
@@ -136,6 +150,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       galletas: {
+        id:5,
         name: "8 Galletas",
         cost: 96.0,
         description: "8 Galletas a Elegir.",
@@ -154,6 +169,7 @@ export const RESTAURANT = [
     image: "https://images.rappi.com.mx/restaurants_logo/1306705841-1534371191.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       cafeOlla: {
+        id:1,
         name: "Café de Olla",
         cost: 45.0,
         description: "Café caliente de olla.",
@@ -161,6 +177,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       chai: {
+        id:2,
         name: "Té Chai",
         cost: 56.0,
         description: "Té caliente con mezcla de especias y hierbas aromáticas.",
@@ -168,6 +185,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       chocolateChile: {
+        id:3,
         name: "Chocolate caliente con Chile",
         cost: 56.0,
         description:
@@ -176,6 +194,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       cafeLeche: {
+        id:4,
         name: "Café con Leche",
         cost: 66.0,
         description: "Café frío 100% mexicano acompañado con leche.",
@@ -183,6 +202,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       granizadoHorchata: {
+        id:5,
         name: "Granizado Horchata",
         cost: 60.0,
         description: "Granizado de Horchata tradicional a base de leche.",
@@ -201,6 +221,7 @@ export const RESTAURANT = [
     image: "https://images.rappi.com.mx/restaurants_logo/1306715350-1555451468-1585178493002-1585265767528.png?d=80x80&?d=256xundefined&e=webp",
     menu: {
       breakfastSampler: {
+        id:1,
         name: "Breakfast Sampler",
         cost: 189.0,
         description:
@@ -209,6 +230,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       hamEggOmelette: {
+        id:2,
         name: "Ham & Egg Melt",
         cost: 159.0,
         description:
@@ -217,6 +239,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       panCheesecake: {
+        id:3,
         name: "Pancake New York Cheesecake",
         cost: 109.0,
         description:
@@ -225,6 +248,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       fullStack: {
+        id:4,
         name: "Full Stack",
         cost: 109.0,
         description: "Pancakes Buttermilk (5) con miel para acompañar.",
@@ -232,6 +256,7 @@ export const RESTAURANT = [
         quantity: 0,
       },
       cowboyBbq: {
+        id:5,
         name: "Cowboy BBQ",
         cost: 169.0,
         description:
