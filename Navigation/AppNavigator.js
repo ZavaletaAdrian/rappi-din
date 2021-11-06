@@ -13,6 +13,7 @@ import ScreenTelefonoValido from "../screens/ScreenTelefonoValido";
 import ScreenCodigoAuth from "../screens/ScreenCodigoAuth";
 import ScreenMenuPrincipal from "../screens/ScreenMenuPrincipal";
 import ScreenListaRestaurantes from "../screens/ScreenListaRestaurantes";
+import ScreenMapa from "../screens/ScreenMapa";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -88,6 +89,14 @@ export const StackNavigator = () => {
       <Tab.Screen
         name="Mi perfil"
         component={noScreenForNow}
+        options={{ 
+          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
+          headerShown: false 
+        }}
+      />
+      <Tab.Screen
+        name="Mapa"
+        component={ScreenMapa}
         options={{ 
           tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
           headerShown: false 
