@@ -10,8 +10,8 @@ const SeccionesCard = (props) =>{
         <View style={styles.card}>
             <TouchableCmp onClick={redirect}>
                 <View style={{height:'100%',width:'100%'}}>
-                    <Image source={{uri: props.productInfo.img}} style={styles.image}/>
-                    <Text style={styles.text}>{props.productInfo.name}</Text>
+                    <Image source={props.productInfo.img} style={styles.image}/>
+                    <Text style={styles.text}>{props.productInfo.title}</Text>
                 </View>
             </TouchableCmp>
         </View>
@@ -22,34 +22,26 @@ export default SeccionesCard;
 
 const styles= StyleSheet.create({
     card: {
-        width: '95%',
-        marginHorizontal:'2.5%',
-        height:Dimensions.get('window').height * 0.25,
+        width: Dimensions.get('window').height * 0.115,
+        height:Dimensions.get('window').height * 0.165,
         borderRadius:15,
         overflow:'hidden',
-        backgroundColor: '#AED9E0',
-        marginBottom:15,
-        
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 5,
+        backgroundColor: 'white',
+        alignContent:'center',
+        borderWidth:.5,
+        borderColor:'#F4F4F4',
+        marginHorizontal:5,
     },
     image: {
-        width:'100%',
+        width:'70%',
         height:'70%',
         resizeMode:'contain',
-        marginTop:10
+        marginLeft:'15%'
     },
     text:{
-        color: 'white',
-        fontFamily:'roboto-bold',
-        fontSize: 25,
+        color: 'black',
+        fontFamily:'Nunito-SemiBold',
+        fontSize: 14,
         textAlign:'center'
-    }
+    },
 })
