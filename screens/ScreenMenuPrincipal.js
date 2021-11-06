@@ -22,16 +22,23 @@ const ScreenMenuPrincipal = (props) =>{
                 <Text style={styles.verTodo}>Ver todos</Text>
               </View>
               <View style={styles.cuerpo}>
-                <FlatList 
-                  data={SECTIONS}
-                  horizontal
-                  contentContainerStyle ={{paddingHorizontal:15}}
-                  showsHorizontalScrollIndicator={false}
-                  keyExtractor={item => item.id.toString()}
-                  renderItem = {itemData =>(
-                    <SeccionesCard {...props} productInfo={itemData.item}/>
-                  )}
-                />
+                <ScrollView
+                horizontal
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}>
+                  <FlatList 
+                    data={SECTIONS}
+                    scrollEnabled={false}
+                    contentContainerStyle ={{paddingHorizontal:15, alignSelf:'flex-start'}}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                    numColumns={Math.ceil(SECTIONS.length / 2)}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem = {itemData =>(
+                      <SeccionesCard {...props} productInfo={itemData.item}/>
+                    )}
+                  />
+                </ScrollView>
               </View>
             </View>
             <View style={styles.style3}>
@@ -70,7 +77,7 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   style2:{
-    height:Dimensions.get('window').height * 0.310,
+    height:Dimensions.get('window').height * 0.440,
     width:Dimensions.get('window').width * 1,
     backgroundColor:'#FBFBFB'
   },
@@ -118,7 +125,7 @@ const styles = StyleSheet.create({
     marginTop:5
   },
   cuerpo:{
-    height: Dimensions.get('window').height * 0.180,
+    height: Dimensions.get('window').height * 0.295,
     backgroundColor:'#FCFCFC'
   },
   restaurantes:{
