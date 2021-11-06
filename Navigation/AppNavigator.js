@@ -14,6 +14,8 @@ import ScreenCodigoAuth from "../screens/ScreenCodigoAuth";
 import ScreenMenuPrincipal from "../screens/ScreenMenuPrincipal";
 import ScreenListaRestaurantes from "../screens/ScreenListaRestaurantes";
 import ScreenMapa from "../screens/ScreenMapa";
+import ScreenRestaurante from "../screens/ScreenRestaurante";
+import ScreenCarrito from "../screens/ScreenCarrito";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -123,6 +125,23 @@ export const StackLogin = () => {
       <Stack.Screen
         name={"ScreenCodigoAuth"}
         component={ScreenCodigoAuth}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export const StackRestaurant = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name={"ScreenRestaurante"}
+        component={ScreenRestaurante}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ScreenCarrito"
+        component={ScreenCarrito}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

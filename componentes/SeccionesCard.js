@@ -4,11 +4,11 @@ import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 
 const SeccionesCard = (props) =>{
     const redirect = () =>{
-
+    
     }
     return(
         <View style={styles.card}>
-            <TouchableCmp onClick={redirect}>
+            <TouchableCmp onPress={redirect}>
                 <View style={{height:'100%',width:'100%'}}>
                     <Image source={props.productInfo.img} style={styles.image}/>
                     <Text style={styles.text}>{props.productInfo.title}</Text>
