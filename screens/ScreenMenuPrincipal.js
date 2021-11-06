@@ -1,10 +1,14 @@
 //SCREEN 4
 import React from 'react';
 import {View, StyleSheet, Text, Dimensions, ScrollView, TextInput, FlatList} from "react-native";
-import { Ionicons } from '@expo/vector-icons';
 import { Divider } from "react-native-elements";
+
+import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+
 import SeccionesCard from '../componentes/SeccionesCard';
 import {SECTIONS} from "../dummy-data/sections"
+import TouchableCmp from '../componentes/UI/TouchableCmp';
 
 const ScreenMenuPrincipal = (props) =>{
 
@@ -15,6 +19,14 @@ const ScreenMenuPrincipal = (props) =>{
                 style={styles.input}
                 placeholder="Buscar en rappi..."
               />
+              <View style={styles.botonBuscar1}>
+                <TouchableCmp>
+                  <View style={styles.botonBuscar2}>
+                    <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                    {/* <Text>Hola</Text> */}
+                  </View>
+                </TouchableCmp>
+              </View>
             </View> 
             <View style={styles.style2}>
               <View style={styles.encabezado}>
@@ -64,8 +76,12 @@ const styles = StyleSheet.create({
   style1:{
     height:Dimensions.get('window').height * 0.150,
     width:Dimensions.get('window').width * 1,
+    // backgroundColor:'#A00',
     backgroundColor:'#F7F8FA',
     borderRadius:15,
+    flex:1,
+    flexDirection: "row",
+
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -73,7 +89,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-
     elevation: 7,
   },
   style2:{
@@ -103,7 +118,8 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
     borderRadius:15,
     paddingLeft:17,
-    fontFamily: 'Nunito-Light'
+    fontFamily: 'Nunito-Light',
+    flexDirection: "row",
   },
   secciones:{
     fontFamily: 'Nunito-ExtraBold',
@@ -139,4 +155,19 @@ const styles = StyleSheet.create({
     color:'#D44838',
     marginTop:5
   },
+  botonBuscar1:{
+    marginLeft:'77%',
+    marginTop: '-11.25%',
+    backgroundColor: '#F4503E',
+    height:'37%',
+    width:'15%',
+    overflow: "hidden",
+    borderRadius: 10,
+  },
+  botonBuscar2:{
+    height:'100%',
+    width:'100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
