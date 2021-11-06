@@ -1,58 +1,99 @@
 import React from "react";
+import { View, Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
+
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 import ScreenLogin from "../screens/ScreenLogin";
 import ScreenTelefonoValido from "../screens/ScreenTelefonoValido";
 import ScreenCodigoAuth from "../screens/ScreenCodigoAuth";
 import ScreenMenuPrincipal from "../screens/ScreenMenuPrincipal";
-
-import ScreenMapa from "../screens/ScreenMapa";
+import ScreenListaRestaurantes from "../screens/ScreenListaRestaurantes";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const TabNavigator = () => {
+function noScreenForNow() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="ScreenMenuPrincipal"
-        component={ScreenMenuPrincipal}
-        options={{
-          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
-        }}
-      />
-      <Tab.Screen
-        name="ScreenMapa"
-        component={ScreenMapa}
-        options={{
-          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
-        }}
-      />
-    </Tab.Navigator>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>No deberías estar aquí lol</Text>
+    </View>
   );
-};
+}
 
 export const StackNavigator = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: true,
+        tabBarStyle:{
+          position: 'absolute',
+          bottom: 20,
+          left: 20,
+          right: 20,
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          borderRadius: 35,
+          height: 50,
+          display: "flex",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.18,
+          shadowRadius: 1.00,
+          
+          elevation: 1,
+        }
+      }}
+    >
       <Tab.Screen
-        name="ScreenMenuPrincipal"
+        name="Inicio"
         component={ScreenMenuPrincipal}
         options={{
-          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
+          tabBarIcon: ({focused}) => <AntDesign name="home" size={24} color={focused?"orange":"gray"}/>,
+          headerShown: false
         }}
-        options={{ headerShown: false }}
+      />
+
+      <Tab.Screen
+        name="Promos"
+        component={noScreenForNow}
+        options={{ 
+          tabBarIcon: ({focused}) => <MaterialCommunityIcons name="brightness-percent" size={24} color={focused?"orange":"gray"} />,
+          headerShown: false
+        }}
+      />
+      <Tab.Screen 
+        name="Buscar"
+        component={ScreenListaRestaurantes}
+        options={{ 
+          tabBarIcon: ({focused}) => <Entypo name="magnifying-glass" size={24} color={focused?"orange":"gray"} />,
+          headerShown: false 
+        }}
       />
       <Tab.Screen
-        name="ScreenMapa"
-        component={ScreenMapa}
-        options={{
-          tabBarIcon: () => <AntDesign name="home" size={24} color="orange" />,
+        name="Soporte"
+        component={noScreenForNow}
+        options={{ 
+          tabBarIcon: ({focused}) => <MaterialIcons name="support-agent" size={24} color={focused?"orange":"gray"} />,
+          headerShown: false 
         }}
-        options={{ headerShown: false }}
       />
+      <Tab.Screen
+        name="Mi perfil"
+        component={noScreenForNow}
+        options={{ 
+          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"orange":"gray"}/>,
+          headerShown: false 
+        }}
+      />
+
     </Tab.Navigator>
   );
 };
