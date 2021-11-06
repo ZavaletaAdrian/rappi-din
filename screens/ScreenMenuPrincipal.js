@@ -1,16 +1,18 @@
 //SCREEN 4
 import React from 'react';
 import {View, StyleSheet, Text, Dimensions, ScrollView, TextInput, FlatList} from "react-native";
-import { Divider } from "react-native-elements";
-
-import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-
 import SeccionesCard from '../componentes/SeccionesCard';
 import {SECTIONS} from "../dummy-data/sections"
 import TouchableCmp from '../componentes/UI/TouchableCmp';
+import { RESTAURANT } from '../dummy-data/data';
+import RestaurantCard from '../componentes/RestaurantCard';
 
-const ScreenMenuPrincipal = (props) =>{
+const ScreenMenuPrincipal = ({navigation},props) =>{
+
+  function buscar(){
+    navigation.navigate("Buscar");
+  }
 
     return(
         <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
@@ -22,7 +24,7 @@ const ScreenMenuPrincipal = (props) =>{
               <View style={styles.botonBuscar1}>
                 <TouchableCmp>
                   <View style={styles.botonBuscar2}>
-                    <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                    <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} onPress={buscar}/>
                     {/* <Text>Hola</Text> */}
                   </View>
                 </TouchableCmp>
@@ -59,7 +61,16 @@ const ScreenMenuPrincipal = (props) =>{
                 <Text style={styles.verTodo2}>Ver todos</Text>
               </View>
               <View >
-                <Text>A</Text>
+                <FlatList
+                    data={RESTAURANT}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+                    scrollEnabled={false}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem= {itemData => (
+                      <RestaurantCard {...props} productInfo={itemData.item}/>
+                    )}
+                  />
               </View>
             </View>
         </ScrollView>
@@ -99,16 +110,7 @@ const styles = StyleSheet.create({
   style3:{
     backgroundColor:'#FFFCF3',
     width: Dimensions.get('window').width * 1,
-    height:Dimensions.get('window').height * 1,
-  },
-  style4:{
-
-  },
-  style5:{
-
-  },
-  style6:{
-
+    height:Dimensions.get('window').height * .850,
   },
   input:{
     width:'68%',
