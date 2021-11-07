@@ -4,8 +4,6 @@ import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 
 const RestaurantCard = (props) =>{
     const redirect = () =>{
-        var propsCompleto = JSON.stringify(props);
-        // console.log("PROPS:" + JSON.stringify(props))
         props.navigation.navigate("ScreenRestaurante", {productInfo:props.productInfo});
     }
     return(
