@@ -2,16 +2,18 @@
 import React from 'react';
 import {View, StyleSheet, Text, Dimensions, ScrollView, TextInput, FlatList} from "react-native";
 import { Entypo } from '@expo/vector-icons';
+
 import SeccionesCard from '../componentes/SeccionesCard';
-import {SECTIONS} from "../dummy-data/sections"
 import TouchableCmp from '../componentes/UI/TouchableCmp';
-import { RESTAURANT } from '../dummy-data/data';
 import RestaurantCard from '../componentes/RestaurantCard';
 
-const ScreenMenuPrincipal = ({navigation},props) =>{
+import { RESTAURANT } from '../dummy-data/data';
+import {SECTIONS} from "../dummy-data/sections"
+
+const ScreenMenuPrincipal = (props) =>{
 
   function buscar(){
-    navigation.navigate("Buscar");
+    navigation.navigate("ScreenListaRestaurantes");
   }
 
     return(
@@ -22,9 +24,9 @@ const ScreenMenuPrincipal = ({navigation},props) =>{
                 placeholder="Buscar en rappi..."
               />
               <View style={styles.botonBuscar1}>
-                <TouchableCmp>
+                <TouchableCmp onPress={buscar}>
                   <View style={styles.botonBuscar2}>
-                    <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} onPress={buscar}/>
+                    <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
                     {/* <Text>Hola</Text> */}
                   </View>
                 </TouchableCmp>

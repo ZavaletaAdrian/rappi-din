@@ -2,9 +2,11 @@ import React from 'react';
 import {View, StyleSheet, Text, Dimensions, Image, ImageBackground} from "react-native";
 import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 
-const RestaurantCard = (props, { navigation }) =>{
+const RestaurantCard = (props) =>{
     const redirect = () =>{
-        navigation.navigate("ScreenRestaurante",{productInfo:props.productInfo});
+        var propsCompleto = JSON.stringify(props);
+        // console.log("PROPS:" + JSON.stringify(props))
+        props.navigation.navigate("ScreenRestaurante", {productInfo:props.productInfo});
     }
     return(
         <View style={styles.container}>
