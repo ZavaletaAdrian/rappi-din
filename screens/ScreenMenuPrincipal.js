@@ -13,7 +13,7 @@ import {SECTIONS} from "../dummy-data/sections"
 const ScreenMenuPrincipal = (props) =>{
 
   function buscar(){
-    navigation.navigate("ScreenListaRestaurantes");
+    props.navigation.navigate("Buscar");
   }
 
     return(
@@ -60,7 +60,9 @@ const ScreenMenuPrincipal = (props) =>{
             <View style={styles.style3}>
               <View style={styles.encabezado}>
                 <Text style={styles.restaurantes}>Restaurantes</Text>
-                <Text style={styles.verTodo2}>Ver todos</Text>
+                <TouchableCmp onPress={buscar}>
+                  <Text style={styles.verTodo2}>Ver todos</Text>
+                </TouchableCmp>
               </View>
               <View >
                 <FlatList
