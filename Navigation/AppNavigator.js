@@ -14,6 +14,7 @@ import ScreenCodigoAuth from "../screens/ScreenCodigoAuth";
 import ScreenMenuPrincipal from "../screens/ScreenMenuPrincipal";
 import ScreenListaRestaurantes from "../screens/ScreenListaRestaurantes";
 import ScreenMapa from "../screens/ScreenMapa";
+import ScreenRestaurante from "../screens/ScreenRestaurante";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -99,7 +100,19 @@ export const StackNavigator = () => {
         component={ScreenMapa}
         options={{ 
           tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
-          headerShown: false 
+          headerShown: false,
+          tabBarButton: () => null,
+          tabBarVisible: false
+        }}
+      />
+      <Tab.Screen
+        name="Restaurantes"
+        component={ScreenRestaurante}
+        options={{ 
+          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
+          headerShown: false,
+          tabBarButton: () => null,
+          tabBarVisible: false
         }}
       />
 
