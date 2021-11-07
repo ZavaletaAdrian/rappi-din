@@ -1,8 +1,13 @@
 //SCREEN 6
 import React, { useState } from 'react';
-import {View, StyleSheet, FlatList} from "react-native";
+import {View, StyleSheet, FlatList, Dimensions, ScrollView, TextInput} from "react-native";
+import { Entypo } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+
 
 import * as menuVar from '../dummy-data/data';
+import TouchableCmp from '../componentes/UI/TouchableCmp';
+
 
 import { RESTAURANT } from '../dummy-data/data';
 import PlatilloCard from '../componentes/PlatilloCard';
@@ -13,16 +18,33 @@ const ScreenRestaurante = (props) =>{
 
   if (restaurantInfo==1){
     return(
-      <View style={styles.container}>
-          <FlatList
-              data={menuVar.MENU1}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem= {itemData => (
-                <PlatilloCard {...props} productInfo={itemData.item}/>
-              )}
-            />
-      </View>
+      <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+        <View style={styles.style1}>
+          <View style={styles.arrow}>
+            <AntDesign name="arrowleft" size={24} color="black" /*onPress={regresar}*//> 
+          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar en rappi..."
+          />
+          <View style={styles.botonBuscar1}>
+            <TouchableCmp >
+              <View style={styles.botonBuscar2}>
+                <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                {/* <Text>Hola</Text> */}
+              </View>
+            </TouchableCmp>
+          </View>
+        </View>
+        <FlatList
+          data={menuVar.MENU1}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={item => item.id.toString()}
+          renderItem= {itemData => (
+            <PlatilloCard {...props} productInfo={itemData.item}/>
+          )}
+        />
+      </ScrollView>
     )
   }else if(restaurantInfo==2){
     return(
@@ -118,4 +140,55 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  style1:{
+    height:Dimensions.get('window').height * 0.150,
+    width:Dimensions.get('window').width * 1,
+    // backgroundColor:'#A00',
+    backgroundColor:'#F7F8FA',
+    borderRadius:15,
+    flex:1,
+    flexDirection: "row",
+    justifyContent:'space-around',
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+  input:{
+    width:'55%',
+    height:'37%',
+    marginTop:'14%',
+    marginLeft:'19%',
+    backgroundColor:'white',
+    borderRadius:15,
+    paddingLeft:17,
+    fontFamily: 'Nunito-Light',
+    flexDirection: "row",
+    color:'black'
+  },
+  botonBuscar1:{
+    marginLeft:'77%',
+    marginTop: '-11.25%',
+    backgroundColor: '#F4503E',
+    height:'37%',
+    width:'15%',
+    overflow: "hidden",
+    borderRadius: 10,
+  },
+  botonBuscar2:{
+    height:'100%',
+    width:'100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  arrow:{
+    position:'absolute',
+    marginTop:'16%',
+    marginLeft:'7%'
+  }
 });
