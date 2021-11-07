@@ -1,6 +1,7 @@
 //SCREEN 9?
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
+import { Divider } from "react-native-elements";
 import TouchableCmp from "../componentes/UI/TouchableCmp";
 import MapView from "react-native-maps";
 
@@ -55,10 +56,22 @@ const ScreenMapa = () => {
         <View style={styles.rappiData}>
           <Text style={styles.rappiName}>Lord Ivan</Text>
           <Text style={styles.info}>Tu Rappi</Text>
+          <Image style={styles.logoPhone} source={require("../Images/phone.png")} />
+          <Image style={styles.logoMsg} source={require("../Images/message.png")} />
+          <Divider style={styles.separatorLine} />
+          <Text style={styles.tipText}>Propina:</Text>
+          <Text style={styles.tipQuantity}>$10.00</Text>
         </View>
       </View>
 
-      <View style={styles.tip}></View>
+      <View style={styles.order}>
+        <View style={styles.orderTime}>
+          <Text style={styles.orderTimeText}>22:42 PM</Text>
+        </View>
+        <View style={styles.orderInfo}>
+          <Text style={styles.orderText}>Su orden esta lista y va en camino!</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -83,6 +96,11 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+  },
+  separatorLine: {
+    marginTop: '10%',
+    marginHorizontal: "1%",
+    margin: StyleSheet.hairlineWidth,
   },
   back: {
     position: "absolute",
@@ -165,7 +183,7 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     marginLeft: "10%",
   },
-  rappiData:{
+  rappiData: {
     position: "absolute",
     top: "10%",
     height: 60,
@@ -184,7 +202,35 @@ const styles = StyleSheet.create({
     color: "#bdc3c7",
     top: "12%",
   },
-  tip: {
+  logoPhone: {
+    resizeMode: "contain",
+    height: 25,
+    width: 25,
+    marginTop: "-10%",
+    marginLeft: "65%",
+  },
+  logoMsg: {
+    resizeMode: "contain",
+    height: 25,
+    width: 25,
+    marginTop: "-9%",
+    marginLeft: "80%",
+  },
+  tipText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#bdc3c7",
+    top: "25%",
+    marginLeft: "-25%",
+  },
+  tipQuantity: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#2f3640",
+    top: "-8%",
+    marginLeft: "56%",
+  },
+  order: {
     position: "absolute",
     top: "90%",
     height: 70,
@@ -193,5 +239,34 @@ const styles = StyleSheet.create({
     backgroundColor: "#ecf0f1",
     borderRadius: 10,
     borderColor: "red",
+  },
+  orderTime: {
+    position: "absolute",
+    top: "5%",
+    height: 50,
+    width: "20%",
+    marginLeft: "70%",
+    backgroundColor: "#ecf0f1",
+    borderRadius: 10,
+    borderColor: "#bdc3c7",
+  },
+  orderTimeText: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "#bdc3c7",
+    top: "10%",
+    marginLeft: "-225%",
+  },
+  orderInfo: {
+    position: "absolute",
+    top: "45%",
+    height: 50,
+    width: "70%",
+    marginLeft: "9%",
+  },
+  orderText: {
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#2f3640",
   },
 });
