@@ -48,55 +48,123 @@ const ScreenRestaurante = (props) =>{
     )
   }else if(restaurantInfo==2){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+        <View style={styles.style1}>
+          <View style={styles.arrow}>
+            <AntDesign name="arrowleft" size={24} color="black" /*onPress={regresar}*//> 
+          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar en rappi..."
+          />
+          <View style={styles.botonBuscar1}>
+            <TouchableCmp >
+              <View style={styles.botonBuscar2}>
+                <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                {/* <Text>Hola</Text> */}
+              </View>
+            </TouchableCmp>
+          </View>
+        </View>
           <FlatList
-              data={menuVar.MENU2}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem= {itemData => (
-                <PlatilloCard {...props} productInfo={itemData.item}/>
-              )}
-            />
-      </View>
+            data={menuVar.MENU2}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            renderItem= {itemData => (
+              <PlatilloCard {...props} productInfo={itemData.item}/>
+            )}
+          />
+      </ScrollView>
     )
   }else if(restaurantInfo==3){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+        <View style={styles.style1}>
+          <View style={styles.arrow}>
+            <AntDesign name="arrowleft" size={24} color="black" /*onPress={regresar}*//> 
+          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar en rappi..."
+          />
+          <View style={styles.botonBuscar1}>
+            <TouchableCmp >
+              <View style={styles.botonBuscar2}>
+                <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                {/* <Text>Hola</Text> */}
+              </View>
+            </TouchableCmp>
+          </View>
+        </View>
           <FlatList
-              data={menuVar.MENU3}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem= {itemData => (
-                <PlatilloCard {...props} productInfo={itemData.item}/>
-              )}
-            />
-      </View>
+            data={menuVar.MENU3}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            renderItem= {itemData => (
+              <PlatilloCard {...props} productInfo={itemData.item}/>
+            )}
+          />
+      </ScrollView>
     )
   }else if(restaurantInfo==4){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+        <View style={styles.style1}>
+          <View style={styles.arrow}>
+            <AntDesign name="arrowleft" size={24} color="black" /*onPress={regresar}*//> 
+          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar en rappi..."
+          />
+          <View style={styles.botonBuscar1}>
+            <TouchableCmp >
+              <View style={styles.botonBuscar2}>
+                <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                {/* <Text>Hola</Text> */}
+              </View>
+            </TouchableCmp>
+          </View>
+        </View>
           <FlatList
-              data={menuVar.MENU4}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem= {itemData => (
-                <PlatilloCard {...props} productInfo={itemData.item}/>
-              )}
-            />
-      </View>
+            data={menuVar.MENU4}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            renderItem= {itemData => (
+              <PlatilloCard {...props} productInfo={itemData.item}/>
+            )}
+          />
+      </ScrollView>
     )
   }else if(restaurantInfo==5){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
+        <View style={styles.style1}>
+          <View style={styles.arrow}>
+            <AntDesign name="arrowleft" size={24} color="black" /*onPress={regresar}*//> 
+          </View>
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar en rappi..."
+          />
+          <View style={styles.botonBuscar1}>
+            <TouchableCmp >
+              <View style={styles.botonBuscar2}>
+                <Entypo name="magnifying-glass" size={24} color={"#FFFFFF"} />
+                {/* <Text>Hola</Text> */}
+              </View>
+            </TouchableCmp>
+          </View>
+        </View>
           <FlatList
-              data={menuVar.MENU5}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id.toString()}
-              renderItem= {itemData => (
-                <PlatilloCard {...props} productInfo={itemData.item}/>
-              )}
-            />
-      </View>
+            data={menuVar.MENU5}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            renderItem= {itemData => (
+              <PlatilloCard {...props} productInfo={itemData.item}/>
+            )}
+          />
+      </ScrollView>
     )
   }
 }
