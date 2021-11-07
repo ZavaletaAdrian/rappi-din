@@ -3,11 +3,10 @@ import {View, StyleSheet, Text, Dimensions, Image, ImageBackground} from "react-
 import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 import { Divider } from "react-native-elements";
 import { AntDesign } from '@expo/vector-icons';
-import ScreenRestaurante from '../screens/ScreenRestaurante.js';
 
-const SearchCard = (props) =>{
+const PlatilloCard = (props) =>{
     const redirect = () =>{
-        navigation.navigate(ScreenRestaurante,{productInfo:props.productInfo});
+
     }
     return(
         <View style={styles.container}>
@@ -15,16 +14,14 @@ const SearchCard = (props) =>{
                     <View style={{height:'100%',width:'100%', flexDirection:'row'}}>
                         <View style={styles.Cimagen}>
                             <View style={styles.card}>
-                                <Image source={{uri: props.productInfo.background}} style={styles.image}/>
+                                <Image source={{uri: props.productInfo.image}} style={styles.image}/>
                             </View>
                         </View>
                         <View style={styles.textos}>
                             <Text style={styles.text}>{props.productInfo.name}</Text>
                             <View style={styles.detalles}>
-                                <Text style={styles.text2}>{props.productInfo.deliveryTime} ° </Text>
-                                <Text style={styles.text2}>${props.productInfo.deliveryFee} ° </Text>
-                                <AntDesign name="star" size={15} color="#FC8C03" />
-                                <Text style={styles.text2}>{props.productInfo.rating}</Text>
+                                <Text style={styles.text2}>{props.productInfo.description} ° </Text>
+                                <Text style={styles.text2}>${props.productInfo.cost} ° </Text>
                             </View>
                         </View>
                     </View>
@@ -34,7 +31,7 @@ const SearchCard = (props) =>{
     )
 }
 
-export default SearchCard;
+export default PlatilloCard;
 
 const styles= StyleSheet.create({
     card: {

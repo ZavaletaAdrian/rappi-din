@@ -142,4 +142,21 @@ export const StackLogin = () => {
   );
 };
 
+export const StackRestaurant = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name={"ScreenRestaurante"}
+        component={ScreenRestaurante}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ScreenCarrito"
+        component={ScreenCarrito}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
+
 export default StackNavigator;
