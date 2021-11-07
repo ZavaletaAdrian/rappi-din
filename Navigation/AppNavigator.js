@@ -17,6 +17,7 @@ import ScreenMapa from "../screens/ScreenMapa";
 import ScreenRestaurante from "../screens/ScreenRestaurante";
 import RestaurantCard from "../componentes/RestaurantCard";
 import ScreenCarrito from "../screens/ScreenCarrito";
+import ScreenDetallesCompra from "../screens/ScreenDetallesCompra";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
