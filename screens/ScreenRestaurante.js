@@ -11,7 +11,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import * as menuVar from '../dummy-data/data';
 import TouchableCmp from '../componentes/UI/TouchableCmp';
 
-import { RESTAURANT } from '../dummy-data/data';
 import PlatilloCard from '../componentes/PlatilloCard';
 
 const ScreenRestaurante = (props) =>{
@@ -93,11 +92,37 @@ const ScreenRestaurante = (props) =>{
       </View>
     )
   }
+  function carrito(){
+    return(
+      <View style={styles.buttonCarritoPre}>
+        <TouchableCmp>
+          <View style={styles.buttonCarritoPost}>
+            <View style={styles.buttonCarritoAcumulado}>
+              <View style={styles.buttonCarritoAcumuladoBloque}>
+                <Text style={styles.buttonCarritoTextText}>0</Text>
+              </View>
+              {/* usestate de la cantidad total de items que van en el carrito */}
+            </View>
+            <View style={styles.buttonCarritoText}>
+              <Text style={styles.buttonCarritoTextText}>Ver Canasta</Text>
+            </View>
+            <View style={styles.buttonCarritoAcumuladoCost}>
+              <Text style={styles.buttonCarritoTextText}>$0.00</Text>
+              {/* usestate de la cantidad de costo total de items que van en el carrito */}
+            </View>
+          </View>
+        </TouchableCmp>
+      </View>
+    )
+  }
   const restaurantInfo = props.route.params.productInfo.id
   if (restaurantInfo==1){
     return(
       <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-        {buscador()}
+        <View>
+          {buscador()}
+          {carrito()}
+        </View>
         {headers(props.route.params.productInfo)}
 
         <FlatList
@@ -108,12 +133,16 @@ const ScreenRestaurante = (props) =>{
             <PlatilloCard {...props} productInfo={itemData.item}/>
             )}
         />
+        <View style={{height:Dimensions.get('window').height*0.1}}></View>
       </ScrollView>
     )
   }else if(restaurantInfo==2){
     return(
       <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-        {buscador()}
+        <View>
+          {buscador()}
+          {carrito()}
+        </View>
         {headers(props.route.params.productInfo)}
         <FlatList
           data={menuVar.MENU2}
@@ -123,12 +152,17 @@ const ScreenRestaurante = (props) =>{
             <PlatilloCard {...props} productInfo={itemData.item}/>
           )}
         />
+        <View style={{height:Dimensions.get('window').height*0.1}}></View>
       </ScrollView>
+      
     )
   }else if(restaurantInfo==3){
     return(
       <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-        {buscador()}
+        <View>
+          {buscador()}
+          {carrito()}
+        </View>
         {headers(props.route.params.productInfo)}
         <FlatList
           data={menuVar.MENU3}
@@ -138,12 +172,16 @@ const ScreenRestaurante = (props) =>{
             <PlatilloCard {...props} productInfo={itemData.item}/>
           )}
         />
+        <View style={{height:Dimensions.get('window').height*0.1}}></View>
       </ScrollView>
     )
   }else if(restaurantInfo==4){
     return(
       <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-        {buscador()}
+        <View>
+          {buscador()}
+          {carrito()}
+        </View>
         {headers(props.route.params.productInfo)}
         <FlatList
           data={menuVar.MENU4}
@@ -153,12 +191,16 @@ const ScreenRestaurante = (props) =>{
             <PlatilloCard {...props} productInfo={itemData.item}/>
           )}
         />
+        <View style={{height:Dimensions.get('window').height*0.1}}></View>
       </ScrollView>
     )
   }else if(restaurantInfo==5){
     return(
       <ScrollView style={styles.container} stickyHeaderIndices={[0]} showsVerticalScrollIndicator={false}>
-        {buscador()}
+        <View>
+          {buscador()}
+          {carrito()}
+        </View>
         {headers(props.route.params.productInfo)}
         <FlatList
           data={menuVar.MENU5}
@@ -168,6 +210,7 @@ const ScreenRestaurante = (props) =>{
             <PlatilloCard {...props} productInfo={itemData.item}/>
           )}
         />
+        <View style={{height:Dimensions.get('window').height*0.1}}></View>
       </ScrollView>
     )
   }
@@ -182,27 +225,15 @@ const styles = StyleSheet.create({
   style1:{
     height:Dimensions.get('window').height * 0.150,
     width:Dimensions.get('window').width * 1,
-    // backgroundColor:'#A00',
-    // backgroundColor:'#F7F8FA',
     borderRadius:15,
     flex:1,
     flexDirection: "row",
-    justifyContent:'space-around',
-
-    // shadowColor: "#000",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.29,
-    // shadowRadius: 4.65,
-    // elevation: 7,
   },
   input:{
     width: Dimensions.get('window').width*0.75,
     height:'37%',
     marginTop:'14%',
-    marginLeft:'19%',
+    marginLeft: Dimensions.get('window').width*0.2,
     backgroundColor:'white',
     borderRadius:5,
     paddingLeft:17,
@@ -214,8 +245,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   botonBuscar1:{
-    marginLeft:Dimensions.get('window').width*0.83,
-    marginTop: '-10.7%',
+    marginLeft: -Dimensions.get('window').width*0.11,
+    marginTop: Dimensions.get('window').height*0.0725,
     backgroundColor: '#F4503E',
     height:'33%',
     width:'10%',
@@ -229,11 +260,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   arrow:{
-    position:'absolute',
+    marginLeft: Dimensions.get('window').width*0.1,
     marginTop:'16%',
-    marginLeft:'7%'
+    position:'absolute',
   },
-  
   resLogoImg:{
     width: Dimensions.get('window').width*0.20,
     height: Dimensions.get('window').width*0.20,
@@ -241,15 +271,14 @@ const styles = StyleSheet.create({
   },
   resImg:{
     width: Dimensions.get('window').width*1,
-    height: Dimensions.get('window').width*0.8,
+    height: Dimensions.get('window').width*1,
     position: 'absolute',
-    marginTop: -Dimensions.get('window').height * 0.150,
+    marginTop: -Dimensions.get('window').height * 0.275,
   },
   headerOutInfo:{
     marginLeft: Dimensions.get('window').width*0.05,
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').width*0.3,
-    // backgroundColor: 'red',
     flexDirection: 'row',
     paddingTop: Dimensions.get('window').width*0.05,
   },
@@ -278,6 +307,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').height*0.3,
     paddingTop: Dimensions.get('window').width*0.05,
+    marginBottom: 5,
     borderRadius: 35,
     backgroundColor: 'white',
 
@@ -288,16 +318,13 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-    elevation: 7,
-    // flexDirection: 'row'
-    
+    elevation: 7,   
   },
   resIconInfo:{
     flexDirection: 'row',
     marginLeft: Dimensions.get('window').width*0.05,
     marginBottom: Dimensions.get('window').width*0.02,
     alignContent: 'center',
-    // justifyContent: 'center',
   },
   resInfoText:{
     fontFamily:'Nunito-SemiBold',
@@ -316,7 +343,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -336,7 +362,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -355,7 +380,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     flexDirection: 'row',
     overflow: 'hidden',
-    
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -402,7 +426,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     alignItems:'center',
     justifyContent: 'center',
-
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -410,7 +433,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
   },
   textAdicional1:{
@@ -422,5 +444,63 @@ const styles = StyleSheet.create({
     fontFamily:'Nunito-Bold',
     fontSize: 8,
     color: '#2AA761',
-  }
+  },
+  buttonCarritoPre:{
+    position: 'absolute',
+    bottom: -Dimensions.get('window').height*0.88,
+    width: Dimensions.get('window').width*0.9,
+    height: Dimensions.get('window').width*0.15,
+    borderRadius:20,
+    marginLeft: Dimensions.get('window').width*0.05,
+    marginBottom: Dimensions.get('window').height*0.025,
+    overflow: 'hidden',
+    justifyContent:'space-around',
+    backgroundColor:'#2BD781',
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+  },
+  buttonCarritoPost:{
+    width: '100%',
+    height: '100%',
+    // backgroundColor:'pink',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonCarritoAcumulado: {
+    width: '20%',
+    // backgroundColor:'green',
+    alignItems: 'center',
+  },
+  buttonCarritoAcumuladoBloque:{
+    width: Dimensions.get('window').width*0.1,
+    height: Dimensions.get('window').width*0.1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15  ,
+    backgroundColor: '#126B41',
+  },
+  buttonCarritoText:{
+    width:'60%',
+    // backgroundColor:'magenta',
+    alignItems: 'center',
+  },
+  buttonCarritoTextText:{
+    color: 'white',
+    fontSize: 15,
+    fontFamily: 'Nunito-Bold'
+  },
+  buttonCarritoAcumuladoCost:{
+    width: '20%',
+    // backgroundColor:'blue',
+    alignItems: 'center',
+  },
 });

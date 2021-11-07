@@ -5,28 +5,30 @@ import { Divider } from "react-native-elements";
 import { AntDesign } from '@expo/vector-icons';
 
 const PlatilloCard = (props) =>{
-    const redirect = () =>{
-
+    const info = () =>{
+        console.log(props)
     }
     return(
-        <View style={styles.container}>
-                <TouchableCmp onClick={redirect}>
-                    <View style={{height:'100%',width:'100%', flexDirection:'row'}}>
-                        <View style={styles.Cimagen}>
-                            <View style={styles.card}>
-                                <Image source={{uri: props.productInfo.image}} style={styles.image}/>
-                            </View>
-                        </View>
-                        <View style={styles.textos}>
-                            <Text style={styles.text}>{props.productInfo.name}</Text>
-                            <View style={styles.detalles}>
-                                <Text style={styles.text2}>{props.productInfo.description} ° </Text>
-                                <Text style={styles.text2}>${props.productInfo.cost} ° </Text>
-                            </View>
-                        </View>
+        <View style={styles.platillo}>
+            <Image source={{uri: props.productInfo.image}} style={styles.platilloImage}/>
+            <View style={styles.platilloView}>
+                <Text style={styles.platilloTitle}>{props.productInfo.name}</Text>
+                <View style={styles.platilloInfo}>
+                    <Text style={styles.platilloDescription}>{props.productInfo.description}</Text>
+                    <Text style={styles.platilloCost}>${props.productInfo.cost}</Text>
+                </View>
+            </View>
+            <View style={styles.touchablePre}>
+                {/* VVVVVVVVVVVVVVVVVV AQUI SEBAS VVVVVVVVVVVVVVVVVV*/}
+                <TouchableCmp> 
+                    {/* OnPress={Funcion(ParametroPlatilloCosto No sé xd)} */}
+                    {/* ^^^^^^^^^^^^^^^^^^^ SEBAS ^^^^^^^^^^^^^^^^^^^^^ */}
+                    <View style={styles.touchablePost}>
+                        <Text style={styles.touchableText}>Agregar</Text>
                     </View>
                 </TouchableCmp>
-            <Divider style={styles.separatorLine}/>
+            </View>
+            {/* <Divider style={styles.separatorLine}/> */}
         </View>
     )
 }
@@ -34,57 +36,81 @@ const PlatilloCard = (props) =>{
 export default PlatilloCard;
 
 const styles= StyleSheet.create({
-    card: {
-        width: Dimensions.get('window').height * 0.130,
-        height: Dimensions.get('window').height * 0.130,
-        borderRadius:15,
-        overflow:'hidden',
-        marginTop:'20%'
+    platillo:{
+        width: Dimensions.get('window').width * 0.9,
+        height:Dimensions.get('window').height * 0.25,
+        marginLeft: Dimensions.get('window').width*0.05,
+        marginBottom: 5,
+        // backgroundColor:'green',
     },
-    image: {
-        width:'100%',
-        height:'100%',
+    platilloImage: {
+        width: Dimensions.get('window').width*0.3,
+        height: Dimensions.get('window').width*0.3,
+        marginTop: 15,
+        right: 0,
+        borderRadius: 15,
         resizeMode:'cover',
-    },
-    Cimagen: {
-        alignContent:'center',
-        alignItems:'center'
-    },
-    background: {
-        width:'100%',
-        height:'100%',
-        resizeMode:'cover',
-    },
-    textos:{
-        justifyContent:'flex-start',
-        marginLeft:17,
-        marginTop:'8%',
-        width:'60%',
-        height:'70%'
+        position: 'absolute',
+        borderWidth: 1,
+        borderColor: "#F0F0F0"
         
     },
-    text:{
-        color: 'black',
-        fontFamily:'Nunito-Bold',
-        fontSize: 17,
+    platilloView:{
+        width: Dimensions.get('window').width*0.55,
+        height: "100%",
+        paddingTop: 15,
+        // backgroundColor:'red',
     },
-    text2:{
-        color: 'black',
-        fontFamily:'Nunito-SemiBold',
-        fontSize: 14,
-        textAlign:'center',
+    platilloTitle:{
+        color:'black',
+        fontSize: 15,
+        fontFamily: 'Nunito-Bold'
     },
-    container:{
-        width: Dimensions.get('window').width * 0.850,
-        height:Dimensions.get('window').height * 0.180,
-        marginHorizontal:'7.5%',
+    platilloInfo:{
+        // backgroundColor: 'blue',
     },
-    separatorLine:{
-        marginHorizontal:'1%',
-        color:'grey'
+    platilloDescription:{
+        fontFamily: 'Nunito-SemiBold',
+        fontSize: 10,
+        color: '#AAA',
     },
-    detalles:{
-        flexDirection:'row',
-        marginTop:20
+    platilloCost:{
+        fontFamily: 'Nunito-Bold',
+        fontSize: 13,
+        color: 'black'
+    },
+    touchablePre:{
+        position: 'absolute',
+        width: Dimensions.get('window').width*0.3,
+        height: Dimensions.get('window').width*0.1,
+        backgroundColor: 'white',
+        borderRadius: 35,
+        overflow: 'hidden',
+        right: 0,
+        bottom: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    touchablePost:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+    },
+    touchableText:{
+        color: '#2AA761',
+        fontFamily: 'Nunito-Bold',
+        fontSize: 15,
     }
+    // separatorLine:{
+    //     marginHorizontal:'1%',
+    //     color:'grey'
+    // },
 })
