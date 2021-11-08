@@ -16,11 +16,13 @@ const CartItem = props =>{
             console.log(e)
         }
     }
-    console.log("PROPS",props)
     return(
         <Card style={styles.product}>
             <Text style={styles.restTitle}>{props.item.name}</Text>
-            <TouchableOpacity style={styles.button} onPress={()=>{alert("Removed from Cart Successfully!"); console.log("Deleted", props.item.id); DeleteItem(props.item);}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{
+                alert("Eliminado del carrito");
+                DeleteItem(props.item);
+                }}>
                 <Ionicons name="trash-outline" size={24} color="blue"/>
             </TouchableOpacity>
             <Divider style={styles.separatorLine}/>

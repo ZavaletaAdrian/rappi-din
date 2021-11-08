@@ -98,16 +98,6 @@ export const StackNavigator = () => {
           headerShown: false 
         }}
       />
-      <Tab.Screen
-        name="Mapa"
-        component={ScreenMapa}
-        options={{ 
-          tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
-          headerShown: false,
-          tabBarButton: () => null,
-          tabBarVisible: false
-        }}
-      />
       {/* <Tab.Screen
         name="Restaurantes"
         component={ScreenRestaurante}
@@ -168,6 +158,16 @@ export const StackRestaurant = () => {
       <Stack.Screen
         name={"ScreenCarrito"}
         component={ScreenCarrito}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name={"ScreenDetallesCompra"}
+        component={ScreenDetallesCompra}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ScreenMapa"
+        component={ScreenMapa}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

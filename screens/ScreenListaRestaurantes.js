@@ -9,7 +9,7 @@ import { RESTAURANT } from '../dummy-data/data';
 import SearchCard from '../componentes/SearchCard';
 
 
-const ScreenListaRestaurantes = ({ navigation },props) =>{
+const ScreenListaRestaurantes = (props, { navigation }) =>{
 
   function regresar(){
     navigation.navigate("Inicio");

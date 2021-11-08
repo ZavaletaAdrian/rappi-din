@@ -4,18 +4,20 @@ import TouchableCmp from './TouchableCmp';
 import * as cartActions from "../../validators/actions/cartActions";
 import {useDispatch} from 'react-redux';
 
-const InputSpinner = props => {
+const InputSpinner = (props) => {
     const dispatch = useDispatch();
     const reload = (item, value) => {
         if(value == '+'){
             try {
-                dispatch(cartActions.addToCart(item.cost));
+                console.log("ITEM 2 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(item.price))
+                dispatch(cartActions.addToCart(item.price));
             }catch(e) {
                 console.log(e); 
             }
         }else if(value == '-'){
             try {
-                dispatch(cartActions.minusItem(item.cost));
+                console.log("ITEM 2 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(item.price))
+                dispatch(cartActions.minusItem(item.price));
             }catch(e) {
                 console.log(e); 
             }
@@ -34,7 +36,7 @@ const InputSpinner = props => {
             </TouchableCmp>
 
             <View style={styles.numberContainer}>
-                <Text style={styles.textStyle}>{props.cost.quantity}</Text>
+                <Text style={styles.textStyle}>{props.price.quantity}</Text>
             </View>
 
             <TouchableCmp

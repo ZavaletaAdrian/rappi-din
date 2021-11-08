@@ -6,7 +6,10 @@ import { AntDesign } from '@expo/vector-icons';
 import TouchableCmp from '../componentes/UI/TouchableCmp';
 
 
-const ScreenDetallesCompra = () =>{
+const ScreenDetallesCompra = ({navigation}) =>{
+  const redirect = () =>{
+    navigation.navigate("ScreenMapa");
+  }
   return(
     <View style={styles.container}>
       <View style={styles.part1}>
@@ -72,7 +75,7 @@ const ScreenDetallesCompra = () =>{
         </View>
 
         <View style={styles.buttonCarritoPre}>
-        <TouchableCmp>
+        <TouchableCmp onPress={redirect}>
           <View style={styles.buttonCarritoPost}>
             <View style={styles.buttonCarritoAcumulado}>
               <View style={styles.buttonCarritoAcumuladoBloque}>

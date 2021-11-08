@@ -1,23 +1,27 @@
 //SCREEN 6
 import React, { useState } from 'react';
 import {View, StyleSheet, FlatList, Dimensions, ScrollView, TextInput, Text, Image, Touchable} from "react-native";
-import { Entypo } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
+
+import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { MaterialIcons } from '@expo/vector-icons';
 
 import * as menuVar from '../dummy-data/data';
-import TouchableCmp from '../componentes/UI/TouchableCmp';
-
+import TouchableCmp from '../componentes/UI/TouchableCmp'
 import PlatilloCard from '../componentes/PlatilloCard';
 
 const ScreenRestaurante = (props) =>{
+  const cartItems = useSelector(state => state.cart.items);
+  const cantidadItems = useSelector(state => state.cart.cantidadItems);
+  const cartTotal = useSelector(state => state.cart.total);
   const redirect = () =>{
     props.navigation.navigate("ScreenCarrito");
+    // console.log(cartItems)
   }
-
   function headers(propsHeaders){
     return(
       <View>
@@ -103,7 +107,7 @@ const ScreenRestaurante = (props) =>{
           <View style={styles.buttonCarritoPost}>
             <View style={styles.buttonCarritoAcumulado}>
               <View style={styles.buttonCarritoAcumuladoBloque}>
-                <Text style={styles.buttonCarritoTextText}>0</Text>
+                <Text style={styles.buttonCarritoTextText}>{cantidadItems}</Text>
               </View>
               {/* usestate de la cantidad total de items que van en el carrito */}
             </View>
@@ -111,7 +115,7 @@ const ScreenRestaurante = (props) =>{
               <Text style={styles.buttonCarritoTextText}>Ver Canasta</Text>
             </View>
             <View style={styles.buttonCarritoAcumuladoCost}>
-              <Text style={styles.buttonCarritoTextText}>$0.00</Text>
+              <Text style={styles.buttonCarritoTextText}>${cartTotal}.0</Text>
               {/* usestate de la cantidad de costo total de items que van en el carrito */}
             </View>
           </View>

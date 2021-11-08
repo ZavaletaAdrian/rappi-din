@@ -7,11 +7,12 @@ import ScreenRestaurante from '../screens/ScreenRestaurante.js';
 
 const SearchCard = (props) =>{
     const redirect = () =>{
-        navigation.navigate(ScreenRestaurante,{productInfo:props.productInfo});
+        // console.log(props)
+        props.navigation.navigate("ScreenRestaurante",{productInfo:props.productInfo});
     }
     return(
         <View style={styles.container}>
-                <TouchableCmp onClick={redirect}>
+                <TouchableCmp onPress={redirect}>
                     <View style={{height:'100%',width:'100%', flexDirection:'row'}}>
                         <View style={styles.Cimagen}>
                             <View style={styles.card}>

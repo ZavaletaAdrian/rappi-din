@@ -3,13 +3,15 @@ import { StyleSheet } from "react-native";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import ReduxThunk from "redux-thunk";
 import { Provider } from "react-redux";
-import authReducer from "./validators/reducers/authReducer";
 import LoginValidation from "./Navigation/LoginValidator";
 import * as Font from "expo-font";
 import AppLoading from 'expo-app-loading';
+import authReducer from "./validators/reducers/authReducer";
+import cartReducer from "./validators/reducers/cartReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  cart: cartReducer,
 });
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 

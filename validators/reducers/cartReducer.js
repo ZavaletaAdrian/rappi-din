@@ -1,58 +1,59 @@
-import { ADD_TO_CART, DELETE_ITEM, MINUS_ITEM } from "../actions/cartActions";
+import {ADD_TO_CART, DELETE_ITEM, MINUS_ITEM} from "../actions/cartActions";
 
 const initialState = {
-  total: 0,
-  items: [],
-};
+    total:0,
+    items:[],
+    cantidadItems:0,
+}
+export default (state=initialState, action)=>{
+    const item = action.item;
+    switch(action.type){
+        case ADD_TO_CART:
+            // console.log(action.item)
+            if(item.quantity == 0){
+                item.id = Math.floor(Math.random() * 1001).toString()
+                item.quantity = item.quantity+1
+                return{
+                    total:state.total+action.item.cost,
+                    items: state.items.concat(action.item),
+                    cantidadItems: state.cantidadItems+1
+                }
+            } else {
+                item.quantity = item.quantity+1
+                return{
+                    total:state.total+action.item.cost,
+                    items: state.items,
+                    cantidadItems: state.cantidadItems+1
+                }
+            }
+        case MINUS_ITEM:
+            if(action.item.quantity == 1){
+                valorARestar = action.item.quantity
+                action.item.quantity = 0
+                const nuevoItems = state.items.filter(itemABorrar => itemABorrar.id != action.item.id)
+                return{
+                    total: state.total-(action.item.cost*valorARestar),
+                    items: nuevoItems,
+                    cantidadItems: state.cantidadItems-1
+                }
+            } else {
+                action.item.quantity = action.item.quantity-1
+                return{
+                    total: state.total-action.item.cost,
+                    items: state.items,
+                    cantidadItems: state.cantidadItems-1
+                }
+            }
+        case DELETE_ITEM:
+            valorARestar = action.item.quantity
+            action.item.quantity = 0
+            const nuevoItems = state.items.filter(itemABorrar => itemABorrar.id != action.item.id)
 
-export default (state = initialState, action) => {
-  const item = action.item;
-  switch (action.type) {
-    case ADD_TO_CART:
-      if (item.quantity == 0) {
-        item.id = Math.floor(Math.random() * 1001).toString();
-        item.quantity = item.quantity + 1;
-        return {
-          total: state.total + action.item.cost,
-          items: state.items.concat(action.item),
-        };
-      } else {
-        item.quantity = item.quantity + 1;
-        return {
-          total: state.total + action.item.cost,
-          items: state.items,
-        };
-      }
-
-    case DELETE_ITEM:
-      minusVal = action.item.quantity;
-      action.item.quantity = 0;
-      const newItems = state.items.filter(
-        (itemDelete) => itemDelete.id != action.item.id
-      );
-      return {
-        total: state.total - action.item.cost,
-        items: newItems,
-      };
-
-    case MINUS_ITEM:
-      if (action.item.quantity == 1) {
-        minusVal = action.item.quantity;
-        action.item.quantity = 0;
-        const newItems = state.items.filter(
-          (itemDelete) => itemDelete.id != action.item.id
-        );
-        return {
-          total: state.total - action.item.cost * minusVal,
-          items: newItems,
-        };
-      } else {
-        action.item.quantity = action.item.quantity - 1;
-        return {
-          total: state.total - action.item.cost,
-          items: state.items,
-        };
-      }
-  }
-  return state;
-};
+            return{
+                total: state.total-(action.item.cost*valorARestar),
+                items: nuevoItems,
+                cantidadItems: state.cantidadItems - valorARestar
+            }
+    }
+    return state;
+}

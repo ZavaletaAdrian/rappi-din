@@ -9,10 +9,11 @@ import * as cartActions from "../validators/actions/cartActions"
 const PlatilloCard = (props) =>{
     const {productInfo} = props
     const dispatch = useDispatch();
-    const addToCart = () =>{
+    const aniadir = () =>{
         try{
+            console.log("ITEM 1 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(productInfo))
             dispatch(cartActions.addToCart(productInfo))
-            console.log(productInfo)
+            // console.log(productInfo)
         }catch(e){
             console.log(e)
         }
@@ -29,7 +30,7 @@ const PlatilloCard = (props) =>{
             </View>
             <View style={styles.touchablePre}>
                 {/* VVVVVVVVVVVVVVVVVV AQUI SEBAS VVVVVVVVVVVVVVVVVV*/}
-                <TouchableCmp onPress={addToCart}> 
+                <TouchableCmp onPress={aniadir}> 
                     {/* OnPress={Funcion(ParametroPlatilloCosto No sé xd)} */}
                     {/* ^^^^^^^^^^^^^^^^^^^ SEBAS ^^^^^^^^^^^^^^^^^^^^^ */}
                     <View style={styles.touchablePost}>

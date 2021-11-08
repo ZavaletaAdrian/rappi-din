@@ -3,9 +3,12 @@ import {StyleSheet, View, Text, Dimensions, Button, FlatList} from 'react-native
 import CartItem from '../componentes/cartItem';
 import { useSelector } from 'react-redux';
 
-const ScreenCarrito = () => {
+const ScreenCarrito = ({navigation}) => {
   const cartItems = useSelector(state => state.cart.items);
   const cartTotal = useSelector(state => state.cart.total);
+  const redirect = () =>{
+    navigation.navigate("ScreenDetallesCompra");
+  }
     return (
       <View style={styles.container}>
         <FlatList
@@ -24,7 +27,7 @@ const ScreenCarrito = () => {
             <View style={{width:'30%'}}>
                 <Button
                     title={'Continue'}
-                    onPress={()=>console.log("Continue")}
+                    onPress={redirect}
                 />
             </View>
         </View>
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
       borderTopLeftRadius:15,
   },
   summaryText: {
-      fontFamily: 'roboto-bold',
+      fontFamily: 'Nunito-Bold',
       fontSize: 16,
       color:'black'
   },
