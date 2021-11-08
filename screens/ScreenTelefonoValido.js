@@ -65,6 +65,7 @@ const ScreenTelefonoValido = ({ navigation }) => {
           placeholder="Número celular"
           onChangeText={(text) => validateNumber(text)}
           keyboardType = 'numeric'
+          maxLength={10}
         />
         <Image 
           source={require('../Images/mexican_flag.png')}

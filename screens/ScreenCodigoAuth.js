@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import * as authActions from "../validators/actions/authActions";
 import { AntDesign } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
-
+import TouchableCmp from "../componentes/UI/TouchableCmp";
 
 
 const ScreenCodigoAuth = ({ navigation }) =>{
@@ -121,9 +121,12 @@ const ScreenCodigoAuth = ({ navigation }) =>{
           </View>
         </View>
         <View style={styles.siguiente}>
-          <TouchableOpacity onPress={onClick} style={codeListo?styles.buttonC:styles.button}>
-            <Text style={styles.buttonText}>Siguiente</Text>
-          </TouchableOpacity>
+          <TouchableCmp onPress={onClick}>
+            <View style={codeListo?styles.buttonC:styles.button}>
+              <Text style={styles.buttonText}>Siguiente</Text>
+            </View>
+          </TouchableCmp>
+          
         </View>
         <View style={styles.leyenda}>
           <Text style={styles.texto2}>Podrás solicitar un código nuevo en</Text>
@@ -204,16 +207,14 @@ const styles = StyleSheet.create({
   buttonC:{
     backgroundColor: "#2BD781",
     borderRadius: 35,
-    width:'45%',
+    width:'100%',
     height:35,
-    marginLeft:'27.5%'
   },
   button:{
     backgroundColor: "grey",
     borderRadius: 35,
-    width:'45%',
+    width:'100%',
     height:35,
-    marginLeft:'27.5%'
   },
   buttonText:{
     color: "white",
@@ -225,6 +226,10 @@ const styles = StyleSheet.create({
     fontFamily:'Nunito-ExtraBold'
   },
   siguiente:{
-    marginTop: '15%'
+    marginTop: '15%',
+    borderRadius:35,
+    overflow:'hidden',
+    width:'45%',
+    marginLeft:'27.5%'
   }
 });

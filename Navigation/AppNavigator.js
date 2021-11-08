@@ -113,7 +113,9 @@ export const StackNavigator = () => {
         component={RestaurantCard}
         options={{ 
           tabBarIcon: ({focused}) => <AntDesign name="user" size={24} color={focused?"#F4503E":"gray"}/>,
-          headerShown: false 
+          headerShown: false,
+          tabBarButton: () => null,
+          tabBarVisible: false 
         }}
       />
     </Tab.Navigator>
