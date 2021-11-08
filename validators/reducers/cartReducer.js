@@ -1,4 +1,4 @@
-import {ADD_TO_CART, DELETE_ITEM, MINUS_ITEM} from "../actions/cartActions";
+import {ADD_TO_CART, DELETE_ALL_ITEMS, DELETE_ITEM, MINUS_ITEM} from "../actions/cartActions";
 
 const initialState = {
     total:0,
@@ -53,6 +53,13 @@ export default (state=initialState, action)=>{
                 total: state.total-(action.item.cost*valorARestar),
                 items: nuevoItems,
                 cantidadItems: state.cantidadItems - valorARestar
+            }
+        case DELETE_ALL_ITEMS:
+            const nuevoItems2 = state.items.filter(itemABorrar => itemABorrar.id != action.item.id)
+            return{
+                total: state.total*0,
+                items: nuevoItems2,
+                cantidadItems: state.cantidadItems*0,
             }
     }
     return state;

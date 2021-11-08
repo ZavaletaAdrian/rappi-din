@@ -15,7 +15,6 @@ import TouchableCmp from '../componentes/UI/TouchableCmp'
 import PlatilloCard from '../componentes/PlatilloCard';
 
 const ScreenRestaurante = (props) =>{
-  const cartItems = useSelector(state => state.cart.items);
   const cantidadItems = useSelector(state => state.cart.cantidadItems);
   const cartTotal = useSelector(state => state.cart.total);
   const redirect = () =>{

@@ -9,14 +9,12 @@ const InputSpinner = (props) => {
     const reload = (item, value) => {
         if(value == '+'){
             try {
-                console.log("ITEM 2 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(item.price))
                 dispatch(cartActions.addToCart(item.price));
             }catch(e) {
                 console.log(e); 
             }
         }else if(value == '-'){
             try {
-                console.log("ITEM 2 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(item.price))
                 dispatch(cartActions.minusItem(item.price));
             }catch(e) {
                 console.log(e); 
@@ -62,14 +60,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width:Dimensions.get('window').width*0.23,
         height:Dimensions.get('window').height*0.03,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        // shadowColor: "#000",
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 2,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 3.84,
+        // elevation: 5,
         backgroundColor:'white',
         borderRadius: 20,
     },
@@ -102,6 +100,7 @@ const styles = StyleSheet.create({
     textStyle:{
         position: 'relative',
         fontSize: 18,
-        color:'red',
+        fontFamily: 'Nunito-SemiBold',
+        color:'black',
     }    
 });

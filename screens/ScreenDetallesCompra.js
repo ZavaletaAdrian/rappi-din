@@ -4,9 +4,12 @@ import React from 'react';
 import {View, StyleSheet, Text, Dimensions} from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import TouchableCmp from '../componentes/UI/TouchableCmp';
+import { useSelector } from 'react-redux';
 
 
 const ScreenDetallesCompra = ({navigation}) =>{
+  const cantidadItems = useSelector(state => state.cart.cantidadItems);
+  const cartTotal = useSelector(state => state.cart.total);
   const redirect = () =>{
     navigation.navigate("ScreenMapa");
   }
@@ -51,7 +54,7 @@ const ScreenDetallesCompra = ({navigation}) =>{
           <View style={styles.resumen}>
             <View style={styles.resumenfila}>
                 <Text style={styles.resumenTextInfo}>Costo de productos</Text>
-                <Text style={styles.resumenCostoDigitos}>$84.00</Text>
+                <Text style={styles.resumenCostoDigitos}>${cartTotal}.00</Text>
             </View>
             <View style={styles.resumenfila}>
                 <Text style={styles.resumenTextInfo}>Tarifa de Servicio</Text>
@@ -79,7 +82,7 @@ const ScreenDetallesCompra = ({navigation}) =>{
           <View style={styles.buttonCarritoPost}>
             <View style={styles.buttonCarritoAcumulado}>
               <View style={styles.buttonCarritoAcumuladoBloque}>
-                <Text style={styles.buttonCarritoTextText}>0</Text>
+                <Text style={styles.buttonCarritoTextText}>{cantidadItems}</Text>
               </View>
               {/* usestate de la cantidad total de items que van en el carrito */}
             </View>
@@ -87,7 +90,7 @@ const ScreenDetallesCompra = ({navigation}) =>{
               <Text style={styles.buttonCarritoTextText}>Hacer pedido</Text>
             </View>
             <View style={styles.buttonCarritoAcumuladoCost}>
-              <Text style={styles.buttonCarritoTextText}>$0.00</Text>
+              <Text style={styles.buttonCarritoTextText2}>${cartTotal+21}.60</Text>
               {/* usestate de la cantidad de costo total de items que van en el carrito */}
             </View>
           </View>
@@ -273,8 +276,8 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
   buttonCarritoPre:{
-    // position: 'absolute',
-    // bottom: -Dimensions.get('window').height*0.88,
+    position: 'absolute',
+    bottom: Dimensions.get('window').height*0.05,
     width: Dimensions.get('window').width*0.9,
     height: Dimensions.get('window').width*0.15,
     borderRadius:20,
@@ -323,6 +326,11 @@ const styles = StyleSheet.create({
   buttonCarritoTextText:{
     color: 'white',
     fontSize: 15,
+    fontFamily: 'Nunito-SemiBold'
+  },
+  buttonCarritoTextText2:{
+    color: 'white',
+    fontSize: 12,
     fontFamily: 'Nunito-SemiBold'
   },
   buttonCarritoAcumuladoCost:{

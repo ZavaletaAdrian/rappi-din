@@ -1,37 +1,38 @@
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions, Image, TouchableOpacity} from 'react-native';
-import {Divider} from "react-native-elements";
+import {View, StyleSheet, Text, Image, Dimensions, TouchableOpacity} from "react-native";
+import { Divider } from "react-native-elements";
 import Card from "./UI/Card";
+import { Feather } from '@expo/vector-icons'; 
 import InputSpinner from "./UI/InputSpinner";
-import {Ionicons} from "@expo/vector-icons";
+import {useDispatch} from "react-redux";
 import * as cartActions from "../validators/actions/cartActions";
-import {useDispatch} from 'react-redux';
 
-const CartItem = props =>{
+const CartItem = (props) =>{
     const dispatch = useDispatch();
-    const DeleteItem = (item) =>{
+    const borrar = (item) =>{
         try{
-            dispatch(cartActions.deleteItemFromCart(item));
+            dispatch(cartActions.deleteItemFromCart(item))
         }catch(e){
             console.log(e)
         }
     }
     return(
         <Card style={styles.product}>
-            <Text style={styles.restTitle}>{props.item.name}</Text>
-            <TouchableOpacity style={styles.button} onPress={()=>{
-                alert("Eliminado del carrito");
-                DeleteItem(props.item);
-                }}>
-                <Ionicons name="trash-outline" size={24} color="blue"/>
-            </TouchableOpacity>
-            <Divider style={styles.separatorLine}/>
-            <View style={{flexDirection:'row'}}>
+            <View style={styles.buttonView}>
+                <TouchableOpacity style={styles.button} onPress={()=>borrar(props.item)}>
+                    <Feather style={{marginTop:7}} name="trash" size={24} color="black"/>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.containerImagePriceNumber}>
                 <View style={styles.imgContainer}>
-                    <Image source={{uri: props.item.image}} style={styles.image}/>
+                    <Image
+                        style={styles.image}
+                        source={{uri:props.item.image}}
+                    />
                 </View>
+                <Text style={styles.itemTitle}>{props.item.name}</Text>
                 <View style={styles.costContainer}>
-                    <Text style={styles.cost}>${props.item.costo} MXN.</Text>
+                    <Text style={styles.cost}>${props.item.cost}</Text>
                 </View>
                 <View style={styles.editQty}>
                     <View style={styles.spinnerContainer}>
@@ -42,69 +43,84 @@ const CartItem = props =>{
                 </View>
             </View>
         </Card>
-
     )
 }
 
 export default CartItem;
 const styles = StyleSheet.create({
-
     product:{
-        height:Dimensions.get('window').height * 0.20,
-        marginVertical:5,
-        marginHorizontal:10,
-        flexDirection:'column',
-        marginBottom:'2.5%'
+        height: Dimensions.get('window').height*0.12,
+        width: Dimensions.get('window').width*0.95,
+        backgroundColor: 'white',
     },
-    costContainer:{
-        width:'33%',
-        height:'100%',
-        alignItems:'flex-end',
+    containerImagePriceNumber:{
+        // height: '50%',
+        // flexDirection: 'row',
+        // backgroundColor: '#FFF',
     },
-    cost:{
-        fontSize:16,
+    itemTitle:{
+        // backgroundColor: 'red',
         position: 'absolute',
-        bottom: 5,
+        marginTop: Dimensions.get('window').width*0.03,
+        marginLeft: Dimensions.get('window').width*0.26,
+        height: Dimensions.get('window').width*0.10,
+        width: Dimensions.get('window').width*0.5,
+        fontSize: 12,
+        fontFamily:'Nunito-SemiBold',
     },
-    restTitle:{
-        fontSize:Dimensions.get('window').height * 0.025,
-        color:'black',
-        margin:'3%',
+    buttonView: {
+        alignItems: 'flex-end',
+        position: 'absolute',
+        right: Dimensions.get('window').width*0.25,
+        bottom: Dimensions.get('window').width*0.01,
+    },
+    button: {
+        // backgroundColor: 'black',
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: 'center'
+    },
+    imgContainer: {
+        width: Dimensions.get('window').width*0.25,
+        height:'100%',
+        // backgroundColor: 'red',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    image:{
+        width: Dimensions.get('window').width*0.20,
+        height: Dimensions.get('window').width*0.20,
+        resizeMode: 'contain',
+        borderWidth: 1,
+        borderColor: '#eee',
     },
     separatorLine:{
         marginHorizontal:'1%',
-        backgroundColor: 'grey',
         margin: StyleSheet.hairlineWidth,
-        marginBottom: 15,
     },
-    imgContainer:{
-        width:'33%',
-        overflow:'hidden',
+    costContainer:{
+        position: 'absolute',
+        marginLeft: Dimensions.get('window').width*0.20,
+        marginTop: Dimensions.get('window').width*0.16,
+        width:'20%',
+        height:'30%',
         alignItems:'center',
-        justifyContent:'center',
-        padding: 10,
-        bottom: 10,
     },
-    image:{
-        width:Dimensions.get('window').height * 0.10,
-        height:Dimensions.get('window').height * 0.10,
-        resizeMode: 'contain',
-        borderRadius:10,
+    cost:{
+        fontFamily:'Nunito-SemiBold',
+        fontSize:16,
     },
     editQty:{
-        width:'33%',
+        position: 'absolute',
+        right: Dimensions.get('window').width*0.01,
+        marginTop: Dimensions.get('window').width*0.11,
+        width:'30%',
         flexDirection:'column-reverse',
-        alignItems:'flex-end',
+        alignItems:'center',
     },
     spinnerContainer:{
-        marginRight: 70,
-        height:'35%',
-        width: '28%',
-        marginBottom: 5,
+        height:'25%',
+        // marginBottom: '25%',
     },
-    button:{
-        flex: 1,
-        marginTop: -35,
-        marginLeft: '90%',
-    }
-});
+  });

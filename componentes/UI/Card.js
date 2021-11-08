@@ -19,13 +19,5 @@ const styles = StyleSheet.create({
         backgroundColor:'rgba(245, 246, 250,1.0)',
         marginBottom:15,
         overflow:'hidden',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
     }
 });

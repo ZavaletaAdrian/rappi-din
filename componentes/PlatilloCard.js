@@ -11,7 +11,6 @@ const PlatilloCard = (props) =>{
     const dispatch = useDispatch();
     const aniadir = () =>{
         try{
-            console.log("ITEM 1 >>>>>>>>>>>>>>>>>>>" + JSON.stringify(productInfo))
             dispatch(cartActions.addToCart(productInfo))
             // console.log(productInfo)
         }catch(e){
