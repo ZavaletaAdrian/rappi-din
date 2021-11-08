@@ -25,7 +25,7 @@ const Stack = createStackNavigator();
 function noScreenForNow() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No deberías estar aquí lol</Text>
+      <Text>WORK IN PROGRESS</Text>
     </View>
   );
 }
