@@ -13,11 +13,14 @@ const ScreenDetallesCompra = ({navigation}) =>{
   const redirect = () =>{
     navigation.navigate("ScreenMapa");
   }
+  const volver = () =>{
+    navigation.goBack();
+  }
   return(
     <View style={styles.container}>
       <View style={styles.part1}>
         <View style={styles.style1}>
-          <AntDesign name="arrowleft" size={24} color="black" />
+          <AntDesign name="arrowleft" size={24} color="black" onPress={volver}/>
           <Text style={styles.txt1}>Tu pedido</Text>
         </View>
         <View style={styles.style2}>
