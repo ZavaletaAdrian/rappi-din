@@ -42,7 +42,7 @@ const ScreenCarrito = ({navigation}) => {
           }}/> 
           <Text style={styles.headerText}>Tu canasta</Text>
         </View>
-        <View>
+        <View style={styles.viewFlatlist}>
           <FlatList
               data={cartItems}
               showsVerticalScrollIndicator={true}
@@ -51,6 +51,7 @@ const ScreenCarrito = ({navigation}) => {
                   <CartItem item={itemData.item}/>
               )}
           />
+          <View style={styles.viewFantasma}></View>
         </View>
         <View style={styles.vaciarCanasta}>
           <TouchableCmp onPress={vaciarCarrito}>
@@ -201,6 +202,13 @@ const styles = StyleSheet.create({
   vaciarCanasta:{
     alignItems:'center',
     justifyContent:'center',
+  },
+  viewFlatlist:{
+    paddingTop: '2%',
+    width: '100%',
+    height: Dimensions.get('window').height*0.75,
+    // marginBottom:Dimensions.get('window').height*2.5,
+    // backgroundColor: 'red',
   }
 });
 
