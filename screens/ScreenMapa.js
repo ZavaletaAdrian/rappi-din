@@ -3,7 +3,8 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { Divider } from "react-native-elements";
 import TouchableCmp from "../componentes/UI/TouchableCmp";
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
+import { useState } from "react";
 
 const defaultLocation = {
   latitude: 20.704078,
@@ -12,7 +13,14 @@ const defaultLocation = {
   longitudeDelta: 0.00421,
 };
 
-const ScreenMapa = () => {
+const ScreenMapa = ({navigation}) => {
+  const [coords, setCoords] = useState(null);
+  const addMarker = (event) =>{
+    setCoords(event.nativeEvent.coordinate)
+  }
+  function letsGoBack(){
+    navigation.goBack()
+  }
   return (
     <View style={styles.container}>
       <View style={styles.mapContainer}>
@@ -20,11 +28,19 @@ const ScreenMapa = () => {
           style={styles.map}
           initialRegion={defaultLocation}
           mapType={"hybrid"}
-        ></MapView>
+          onPress={addMarker}
+        >
+          {
+            coords?
+            <Marker key={1} coordinate={coords}/>
+            :
+            null
+          }
+        </MapView>
       </View>
 
       <View style={styles.back}>
-        <TouchableCmp style={styles.topButton}>
+        <TouchableCmp onPress={letsGoBack}style={styles.topButton}>
           <Image
             style={styles.icon}
             source={require("../Images/backArrow.png")}
@@ -60,7 +76,7 @@ const ScreenMapa = () => {
           <Image style={styles.logoMsg} source={require("../Images/message.png")} />
           <Divider style={styles.separatorLine} />
           <Text style={styles.tipText}>Propina:</Text>
-          <Text style={styles.tipQuantity}>$10.00</Text>
+          <Text style={styles.tipQuantity}>$0.00</Text>
         </View>
       </View>
 
@@ -106,27 +122,30 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 30,
     left: 30,
-    height: 60,
-    width: 80,
-    justifyContent: "center",
-    alignItems: "center",
+    height: 50,
+    width: 50,
+    overflow: 'hidden',
+    borderRadius: 30,
+    // justifyContent: "center",
+
+    // alignItems: "center",
   },
   supportView: {
     position: "absolute",
     top: 30,
-    right: 10,
+    right: 30,
+    overflow: 'hidden',
+    borderRadius: 30,
+
   },
   topButton: {
     position: "relative",
-    backgroundColor: "#ecf0f1",
-    marginLeft: "10%",
+    backgroundColor: "white",
     height: 50,
     width: 50,
-    top: 15,
-    justifyContent: "center",
-    alignContent: "center",
-    paddingLeft: "12%",
     borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
   },
   icon: {
     resizeMode: "contain",
@@ -144,14 +163,14 @@ const styles = StyleSheet.create({
     borderColor: "#bdc3c7",
   },
   deliveryText: {
-    fontSize: 10,
+    fontSize: 8,
     fontWeight: "bold",
     color: "#bdc3c7",
     top: "10%",
     marginLeft: "10%",
   },
   deliveryTime: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: "bold",
     color: "#2f3640",
     top: "15%",
@@ -213,22 +232,24 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     height: 25,
     width: 25,
-    marginTop: "-9%",
+    marginTop: "-8.5%",
     marginLeft: "80%",
   },
   tipText: {
+    fontFamily: 'Nunito-Bold',
     fontSize: 14,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "#bdc3c7",
     top: "25%",
     marginLeft: "-25%",
   },
   tipQuantity: {
+    fontFamily: 'Nunito-SemiBold',
     fontSize: 15,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "#2f3640",
-    top: "-8%",
-    marginLeft: "56%",
+    top: "-20%",
+    marginLeft: "69%",
   },
   order: {
     position: "absolute",
@@ -265,8 +286,9 @@ const styles = StyleSheet.create({
     marginLeft: "9%",
   },
   orderText: {
-    fontSize: 15,
-    fontWeight: "bold",
+    fontFamily: 'Nunito-SemiBold',
+    fontSize: 13,
+    // fontWeight: "bold",
     color: "#2f3640",
   },
 });

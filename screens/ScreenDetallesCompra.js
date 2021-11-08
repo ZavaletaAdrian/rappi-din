@@ -29,8 +29,8 @@ const ScreenDetallesCompra = ({navigation}) =>{
           <Text style={styles.txtP4}>¡Las entregas solo son posibles gracias a ellos!</Text>
           <Text style={styles.txtP5}>Añade un propina y reconoce su esfuerzo</Text>
           <View style={styles.style7}>
-            <View style={styles.cuadrito}>
-              <Text style={styles.txtCuadrito}>$0</Text>
+            <View style={styles.cuadrito2}>
+              <Text style={styles.txtCuadrito2}>$0</Text>
             </View>
             <View style={styles.cuadrito}>
               <Text style={styles.txtCuadrito}>$20</Text>
@@ -241,8 +241,22 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center'
   },
+  cuadrito2:{
+    borderRadius:20,
+    borderWidth:5,
+    borderColor:'#2BD781',
+    height: Dimensions.get('window').height*0.05,
+    width:'18%',
+    alignItems:'center',
+    justifyContent:'center'
+  },
   txtCuadrito:{
     color: 'grey',
+    fontFamily:'Nunito-ExtraBold',
+    fontSize:14
+  },
+  txtCuadrito2:{
+    color: '#2BD781',
     fontFamily:'Nunito-ExtraBold',
     fontSize:14
   },
