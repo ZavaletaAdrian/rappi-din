@@ -55,7 +55,10 @@ export default (state=initialState, action)=>{
                 cantidadItems: state.cantidadItems - valorARestar
             }
         case DELETE_ALL_ITEMS:
-            const nuevoItems2 = state.items.filter(itemABorrar => itemABorrar.id != action.item.id)
+            for (let objeto of state.items){
+                objeto.quantity = 0
+            }
+            const nuevoItems2 = []
             return{
                 total: state.total*0,
                 items: nuevoItems2,
