@@ -11,7 +11,7 @@ const ScreenCarrito = () => {
         <FlatList
             data={cartItems}
             showsVerticalScrollIndicator={true}
-            keyExtractor={item => item.id}
+            keyExtractor= {() => Math.floor(Math.random() * 1001).toString()}
             renderItem={itemData =>(
                 <CartItem item={itemData.item}/>
             )}

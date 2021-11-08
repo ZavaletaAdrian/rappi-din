@@ -14,6 +14,10 @@ import TouchableCmp from '../componentes/UI/TouchableCmp';
 import PlatilloCard from '../componentes/PlatilloCard';
 
 const ScreenRestaurante = (props) =>{
+  const redirect = () =>{
+    props.navigation.navigate("ScreenCarrito");
+  }
+
   function headers(propsHeaders){
     return(
       <View>
@@ -95,7 +99,7 @@ const ScreenRestaurante = (props) =>{
   function carrito(){
     return(
       <View style={styles.buttonCarritoPre}>
-        <TouchableCmp>
+        <TouchableCmp onPress={redirect}>
           <View style={styles.buttonCarritoPost}>
             <View style={styles.buttonCarritoAcumulado}>
               <View style={styles.buttonCarritoAcumuladoBloque}>

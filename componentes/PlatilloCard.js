@@ -3,10 +3,19 @@ import {View, StyleSheet, Text, Dimensions, Image, ImageBackground} from "react-
 import TouchableCmp from '../componentes/UI/TouchableCmp.js';
 import { Divider } from "react-native-elements";
 import { AntDesign } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
+import * as cartActions from "../validators/actions/cartActions"
 
 const PlatilloCard = (props) =>{
-    const info = () =>{
-        console.log(props)
+    const {productInfo} = props
+    const dispatch = useDispatch();
+    const addToCart = () =>{
+        try{
+            dispatch(cartActions.addToCart(productInfo))
+            console.log(productInfo)
+        }catch(e){
+            console.log(e)
+        }
     }
     return(
         <View style={styles.platillo}>
@@ -20,7 +29,7 @@ const PlatilloCard = (props) =>{
             </View>
             <View style={styles.touchablePre}>
                 {/* VVVVVVVVVVVVVVVVVV AQUI SEBAS VVVVVVVVVVVVVVVVVV*/}
-                <TouchableCmp> 
+                <TouchableCmp onPress={addToCart}> 
                     {/* OnPress={Funcion(ParametroPlatilloCosto No sé xd)} */}
                     {/* ^^^^^^^^^^^^^^^^^^^ SEBAS ^^^^^^^^^^^^^^^^^^^^^ */}
                     <View style={styles.touchablePost}>

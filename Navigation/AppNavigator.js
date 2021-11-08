@@ -166,7 +166,7 @@ export const StackRestaurant = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="ScreenCarrito"
+        name={"ScreenCarrito"}
         component={ScreenCarrito}
         options={{ headerShown: false }}
       />
