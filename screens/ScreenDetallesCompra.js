@@ -7,56 +7,92 @@ import TouchableCmp from '../componentes/UI/TouchableCmp';
 
 
 const ScreenDetallesCompra = () =>{
-    return(
-        <View style={styles.container}>
-          <View style={styles.part1}>
-            <View style={styles.style1}>
-              <AntDesign name="arrowleft" size={24} color="black" />
-              <Text style={styles.txt1}>Tu pedido</Text>
+  return(
+    <View style={styles.container}>
+      <View style={styles.part1}>
+        <View style={styles.style1}>
+          <AntDesign name="arrowleft" size={24} color="black" />
+          <Text style={styles.txt1}>Tu pedido</Text>
+        </View>
+        <View style={styles.style2}>
+          <Text style={styles.txt2}>Dividir cuenta</Text>
+          <Text style={styles.txt3}>Seleccionar contactos</Text>
+        </View>
+        <View style={styles.style3}>
+          <Text style={styles.txtP1}>Propina</Text>
+          <Text style={styles.txtP4}>¡Las entregas solo son posibles gracias a ellos!</Text>
+          <Text style={styles.txtP5}>Añade un propina y reconoce su esfuerzo</Text>
+          <View style={styles.style7}>
+            <View style={styles.cuadrito}>
+              <Text style={styles.txtCuadrito}>$0</Text>
             </View>
-            <View style={styles.style2}>
-              <Text style={styles.txt2}>Dividir cuenta</Text>
-              <Text style={styles.txt3}>Seleccionar contactos</Text>
+            <View style={styles.cuadrito}>
+              <Text style={styles.txtCuadrito}>$20</Text>
             </View>
-            <View style={styles.style3}>
-              <Text style={styles.txtP1}>Propina</Text>
-              <Text style={styles.txtP4}>¡Las entregas solo son posibles gracias a ellos!</Text>
-              <Text style={styles.txtP5}>Añade un propina y reconoce su esfuerzo</Text>
-              <View style={styles.style7}>
-                <View style={styles.cuadrito}>
-                  <Text style={styles.txtCuadrito}>$0</Text>
-                </View>
-                <View style={styles.cuadrito}>
-                  <Text style={styles.txtCuadrito}>$20</Text>
-                </View>
-                <View style={styles.cuadrito}>
-                  <Text style={styles.txtCuadrito}>$30</Text>
-                </View>
-                <View style={styles.cuadrito}>
-                  <Text style={styles.txtCuadrito}>$40</Text>
-                </View>
-                <View style={styles.cuadrito}>
-                  <Text style={styles.txtCuadrito}>Otro</Text>
-                </View>
-              </View>
-              <Text style={styles.txtP6}>Tu Rappi recibe el 100% de este valor</Text>
+            <View style={styles.cuadrito}>
+              <Text style={styles.txtCuadrito}>$30</Text>
+            </View>
+            <View style={styles.cuadrito}>
+              <Text style={styles.txtCuadrito}>$40</Text>
+            </View>
+            <View style={styles.cuadrito}>
+              <Text style={styles.txtCuadrito}>Otro</Text>
             </View>
           </View>
-          <View style={styles.part2}>
-            <View style={styles.style4}>
-              <Text>Resumen</Text>
-            </View>
-            <TouchableCmp>
-              <View style={styles.style5}>
-                <View style={styles.style6}>
-                  <Text style={styles.txtB1}>Hacer pedido</Text>
-                  <Text style={styles.txtB2}>TOTAL</Text>
-                </View>
-              </View>
-            </TouchableCmp>
-          </View> 
+          <Text style={styles.txtP6}>Tu Rappi recibe el 100% de este valor</Text>
         </View>
-    )
+      </View>
+      <View style={styles.part2}>
+        <View style={styles.style4}>
+          <Text style={styles.txtP1}>Resumen</Text>
+          <View style={styles.resumen}>
+            <View style={styles.resumenfila}>
+                <Text style={styles.resumenTextInfo}>Costo de productos</Text>
+                <Text style={styles.resumenCostoDigitos}>$84.00</Text>
+            </View>
+            <View style={styles.resumenfila}>
+                <Text style={styles.resumenTextInfo}>Tarifa de Servicio</Text>
+                <Text style={styles.resumenCostoDigitos}>$6.00</Text>
+            </View>
+            <View style={styles.resumenfila}>
+                <Text style={styles.resumenTextInfo}>Costo de Envío</Text>
+                <Text style={styles.resumenCostoDigitos}>$15.60</Text>
+            </View>
+            <View style={styles.resumenfila}>
+                <Text style={styles.resumenTextInfo}>Propina</Text>
+                <Text style={styles.resumenCostoDigitos}>$0.00</Text>
+            </View>
+            <View style={styles.resumenfila}>
+                <Text style={{color: 'black', fontFamily: 'Nunito-Bold', textDecorationLine: 'underline'}}>Así funcionan nuestros costos</Text>
+                <Text style={styles.resumenCostoDigitos}></Text>
+            </View>
+          </View>
+            <Text style={styles.aviso}>Realizaremos un cobro a tu método de pago por el valor de la orden.
+              Si hay modificaciones, lo ajustaremos al saber el valor final de tu orden</Text>
+        </View>
+
+        <View style={styles.buttonCarritoPre}>
+        <TouchableCmp>
+          <View style={styles.buttonCarritoPost}>
+            <View style={styles.buttonCarritoAcumulado}>
+              <View style={styles.buttonCarritoAcumuladoBloque}>
+                <Text style={styles.buttonCarritoTextText}>0</Text>
+              </View>
+              {/* usestate de la cantidad total de items que van en el carrito */}
+            </View>
+            <View style={styles.buttonCarritoText}>
+              <Text style={styles.buttonCarritoTextText}>Hacer pedido</Text>
+            </View>
+            <View style={styles.buttonCarritoAcumuladoCost}>
+              <Text style={styles.buttonCarritoTextText}>$0.00</Text>
+              {/* usestate de la cantidad de costo total de items que van en el carrito */}
+            </View>
+          </View>
+        </TouchableCmp>
+      </View>
+      </View> 
+    </View>
+  )
 }
 
 export default ScreenDetallesCompra;
@@ -64,18 +100,18 @@ export default ScreenDetallesCompra;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: 'white'
   },
   part1:{
     backgroundColor:'white',
     width: Dimensions.get('window').width * 1,
-    height:Dimensions.get('window').height * .415,
+    height:Dimensions.get('window').height * .4,
   },
   part2:{
-    backgroundColor:'green',
+    // backgroundColor:'green',
     width: Dimensions.get('window').width * 1,
-    height:Dimensions.get('window').height * .601,
-    marginTop:Dimensions.get('window').height*.015
+    height:Dimensions.get('window').height * .6,
+    marginTop:Dimensions.get('window').height*.07
   },
   style1:{
     backgroundColor:'white',
@@ -107,22 +143,23 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   style3:{
-    backgroundColor:'red',
+    // backgroundColor:'red',
     width: Dimensions.get('window').width * 1,
-    height:Dimensions.get('window').height * .170,
+    height:Dimensions.get('window').height * 0.225,
     marginTop:'7%'
   },
   style4:{
-    backgroundColor:'purple',
+    // backgroundColor:'purple',
     width: Dimensions.get('window').width * 1,
     height:Dimensions.get('window').height * .450
   },
   style5:{
+    position: 'absolute',
     backgroundColor:'#2BD781',
     width: Dimensions.get('window').width * .900,
     height:Dimensions.get('window').height * .080,
     marginLeft:'5%',
-    marginTop:'7%',
+    marginTop: Dimensions.get('window').height * .465,
     borderRadius:15,
   },
   style6:{
@@ -163,7 +200,7 @@ const styles = StyleSheet.create({
   },
   txtP4:{
     fontFamily:'Nunito-ExtraBold',
-    fontSize:14,
+    fontSize:12,
     color: 'black',
     marginLeft:'5%'
   },
@@ -193,7 +230,7 @@ const styles = StyleSheet.create({
     borderRadius:20,
     borderWidth:.5,
     borderColor:'grey',
-    height:'80%',
+    height: Dimensions.get('window').height*0.05,
     width:'18%',
     alignItems:'center',
     justifyContent:'center'
@@ -202,5 +239,92 @@ const styles = StyleSheet.create({
     color: 'grey',
     fontFamily:'Nunito-ExtraBold',
     fontSize:14
+  },
+  resumen:{
+    marginTop:'5%',
+    // backgroundColor: 'red',
+    marginLeft: '5%',
+    width: '90%',
+  },
+  resumenfila:{
+    flexDirection: 'row',
+    // backgroundColor:'pink',
+    justifyContent: 'space-between',
+    marginBottom: Dimensions.get('window').height*0.02
+  },
+  resumenTextInfo:{
+    // backgroundColor: 'blue',
+    color:'gray',
+    fontFamily: 'Nunito-SemiBold',
+  },
+  resumenCostoDigitos:{
+    fontFamily: 'Nunito-SemiBold',
+    // backgroundColor: 'green',
+  },
+  aviso:{
+    marginLeft: '5%',
+    marginTop: '5%',
+    width: '90%',
+    fontFamily: 'Nunito-SemiBold',
+    fontSize: 11,
+    color: 'gray',
+  },
+  buttonCarritoPre:{
+    // position: 'absolute',
+    // bottom: -Dimensions.get('window').height*0.88,
+    width: Dimensions.get('window').width*0.9,
+    height: Dimensions.get('window').width*0.15,
+    borderRadius:20,
+    marginLeft: Dimensions.get('window').width*0.05,
+    // marginBottom: Dimensions.get('window').height*0.025,
+    overflow: 'hidden',
+    justifyContent:'space-around',
+    backgroundColor:'#2BD781',
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+  },
+  buttonCarritoPost:{
+    width: '100%',
+    height: '100%',
+    // backgroundColor:'pink',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonCarritoAcumulado: {
+    width: '20%',
+    // backgroundColor:'green',
+    alignItems: 'center',
+  },
+  buttonCarritoAcumuladoBloque:{
+    width: Dimensions.get('window').width*0.1,
+    height: Dimensions.get('window').width*0.1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15  ,
+    backgroundColor: '#126B41',
+  },
+  buttonCarritoText:{
+    width:'60%',
+    // backgroundColor:'magenta',
+    alignItems: 'center',
+  },
+  buttonCarritoTextText:{
+    color: 'white',
+    fontSize: 15,
+    fontFamily: 'Nunito-SemiBold'
+  },
+  buttonCarritoAcumuladoCost:{
+    width: '20%',
+    // backgroundColor:'blue',
+    alignItems: 'center',
   },
 });
